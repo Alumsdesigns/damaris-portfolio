@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Damaris Alum — UX Researcher & UI Designer · CV</title>
+<meta name="description" content="CV for Damaris Alum — UX Researcher and UI Designer. Three years experience across non-profit, e-commerce and tech. Google UX Certified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#2a9d8f;
+  --teal-dark:#0a3630;
+  --teal-mid:#1a6b5e;
+  --teal-light:#d4ede9;
+  --teal-pale:#eaf3f0;
+  --gold:#c9a84c;
+  --bg:#ece4d6;
+  --paper:#f5efe2;
+  --text:#062320;
+  --text-muted:#0f4a42;
+  --text-dim:#2a6b5e;
+  --border:rgba(10,54,48,0.22);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+[data-theme="dark"]{
+  --teal:#3eb8a8;
+  --teal-dark:#7cf6c2;
+  --teal-mid:#2a9d8f;
+  --teal-light:#3a6e64;
+  --teal-pale:#1a2e2a;
+  --gold:#e2c87c;
+  --bg:#0a1814;
+  --paper:#13241f;
+  --text:#f0faf6;
+  --text-muted:#a8d0c8;
+  --text-dim:#7aa49c;
+  --border:rgba(124,246,194,0.22);
+}
+html,body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:16px;line-height:1.6;
+  transition:background 0.35s,color 0.35s;
+}
+
+.cv-back{
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);border-bottom:1px solid var(--border);
+  padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.cv-back a{
+  font-size:14px;color:var(--teal-dark);text-decoration:none;font-weight:500;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.cv-back a:hover,.cv-back a:focus-visible{color:var(--teal);outline:none}
+.cv-back-actions{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cv-theme-btn{
+  font-size:13px;color:var(--text-muted);background:transparent;
+  border:1px solid var(--border);
+  padding:6px 12px;border-radius:20px;cursor:pointer;font-family:inherit;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all 0.25s;
+}
+.cv-theme-btn:hover,.cv-theme-btn:focus-visible{
+  border-color:var(--teal);color:var(--teal);outline:none;
+}
+.cv-print{
+  font-size:14px;color:var(--teal);background:transparent;border:1px solid var(--teal);
+  padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;
+}
+.cv-print:hover,.cv-print:focus-visible{background:var(--teal);color:#fff;outline:none}
+
+.cv-page{
+  max-width:1080px;margin:24px auto;padding:0;
+  background:var(--paper);
+  box-shadow:0 8px 32px rgba(10,54,48,0.12);
+  border-radius:8px;overflow:hidden;
+  display:grid;grid-template-columns:35% 65%;
+  min-height:calc(100vh - 120px);
+}
+
+.cv-side{
+  background:var(--teal-pale);padding:36px 28px;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;gap:24px;
+}
+.cv-name{
+  font-family:var(--serif);font-size:30px;line-height:1.1;
+  color:var(--teal-dark);font-weight:500;
+}
+.cv-role{
+  font-size:14px;color:var(--teal);font-weight:500;
+  text-transform:uppercase;letter-spacing:0.08em;margin-top:6px;
+}
+.cv-contact{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.cv-contact a{
+  color:var(--teal-dark);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  word-break:break-word;
+}
+.cv-contact a:hover{color:var(--teal);text-decoration:underline}
+.cv-side-h{
+  font-family:var(--serif);font-size:16px;color:var(--teal-dark);
+  font-weight:500;margin-bottom:8px;
+  border-bottom:1px solid var(--border);padding-bottom:6px;
+}
+.cv-badges{display:flex;flex-direction:column;gap:6px}
+.cv-badge{
+  background:var(--paper);border:1px solid var(--border);
+  padding:8px 12px;border-radius:6px;font-size:13px;
+  display:flex;flex-direction:column;gap:2px;
+}
+.cv-badge-name{color:var(--teal-dark);font-weight:500}
+.cv-badge-meta{color:var(--text-muted);font-size:12px}
+.cv-tags{display:flex;flex-wrap:wrap;gap:5px}
+.cv-tag{
+  font-size:12px;color:var(--teal-dark);background:var(--paper);
+  border:1px solid var(--border);
+  padding:3px 9px;border-radius:12px;
+  transition:all 0.2s;
+}
+.cv-skill-block{margin-bottom:14px}
+.cv-skill-block:last-child{margin-bottom:0}
+.cv-skill-label{
+  font-size:11px;color:var(--teal);text-transform:uppercase;
+  letter-spacing:0.08em;font-weight:500;margin-bottom:5px;
+}
+
+.cv-main{padding:36px 36px 40px;display:flex;flex-direction:column;gap:26px}
+.cv-section-h{
+  font-family:var(--serif);font-size:20px;color:var(--teal-dark);font-weight:500;
+  border-bottom:2px solid var(--teal);padding-bottom:6px;margin-bottom:12px;
+}
+.cv-summary{font-size:15px;color:var(--text-muted);line-height:1.7;font-weight:300}
+.cv-job{margin-bottom:18px}
+.cv-job:last-child{margin-bottom:0}
+.cv-job-title{
+  font-family:var(--serif);font-size:16px;color:var(--teal-dark);font-weight:500;
+}
+.cv-job-meta{
+  font-size:13px;color:var(--text-dim);margin-top:2px;margin-bottom:8px;
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+.cv-job-meta span:not(:first-child)::before{content:"·";margin-right:10px;color:var(--text-dim)}
+.cv-job-intro{font-size:14px;color:var(--text-muted);line-height:1.65;margin-bottom:8px;font-weight:300}
+.cv-job ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.cv-job li{
+  font-size:14px;color:var(--text);line-height:1.55;font-weight:300;
+  padding-left:16px;position:relative;
+}
+.cv-job li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:6px;height:6px;border-radius:50%;background:var(--teal);
+}
+
+.cv-edu .cv-job-title{font-size:15px}
+.cv-edu .cv-job-intro{font-size:13px;line-height:1.6}
+
+@media(max-width:760px){
+  .cv-page{grid-template-columns:1fr}
+  .cv-side{border-right:none;border-bottom:1px solid var(--border)}
+  .cv-main{padding:28px 22px}
+}
+
+/* ── ENTRANCE ANIMATIONS ── */
+@keyframes cvFadeUp{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes cvFadeIn{from{opacity:0}to{opacity:1}}
+.cv-page{
+  opacity:0;animation:cvFadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;
+}
+.cv-side > *{opacity:0;animation:cvFadeUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards}
+.cv-side > *:nth-child(1){animation-delay:0.25s}
+.cv-side > *:nth-child(2){animation-delay:0.35s}
+.cv-side > *:nth-child(3){animation-delay:0.45s}
+.cv-side > *:nth-child(4){animation-delay:0.55s}
+.cv-main > *{opacity:0;animation:cvFadeUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards}
+.cv-main > *:nth-child(1){animation-delay:0.35s}
+.cv-main > *:nth-child(2){animation-delay:0.50s}
+.cv-main > *:nth-child(3){animation-delay:0.65s}
+.cv-section-h{position:relative;overflow:hidden}
+.cv-section-h::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;
+  background:var(--teal);transform:scaleX(0);transform-origin:left;
+  animation:cvHeadingLine 0.8s cubic-bezier(0.4,0,0.2,1) 0.7s forwards;
+}
+@keyframes cvHeadingLine{to{transform:scaleX(1)}}
+.cv-job{transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
+.cv-job:hover{transform:translateX(3px)}
+.cv-badge{transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s}
+.cv-badge:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 6px 18px rgba(10,54,48,0.10)}
+.cv-tag{transition:background 0.2s,color 0.2s,border-color 0.2s}
+.cv-tag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .cv-page,.cv-side > *,.cv-main > *{opacity:1}
+  .cv-section-h::after{transform:scaleX(1)}
+}
+@media print{
+  .cv-page,.cv-side > *,.cv-main > *{opacity:1!important;animation:none!important;transform:none!important}
+  .cv-section-h::after{transform:scaleX(1)!important;animation:none!important}
+}
+
+/* ── PRINT (A4) ── */
+@media print{
+  @page{size:A4;margin:12mm}
+  /* Force light palette for print regardless of viewing theme */
+  :root,[data-theme="dark"]{
+    --bg:#fff;--paper:#fff;--text:#062320;--text-muted:#0f4a42;--text-dim:#2a6b5e;
+    --teal:#2a9d8f;--teal-dark:#0a3630;--teal-mid:#1a6b5e;--teal-light:#d4ede9;--teal-pale:#eaf3f0;
+    --border:rgba(10,54,48,0.22);
+  }
+  html,body{background:#fff;font-size:11pt;line-height:1.4}
+  .cv-back{display:none}
+  .cv-page{
+    margin:0;box-shadow:none;border-radius:0;max-width:none;
+    grid-template-columns:32% 68%;min-height:auto;
+  }
+  .cv-side{background:#f5fbfa;padding:18px 16px;gap:14px}
+  .cv-main{padding:18px 20px;gap:14px}
+  .cv-name{font-size:22pt}
+  .cv-role{font-size:10pt}
+  .cv-section-h{font-size:13pt;margin-bottom:6px}
+  .cv-side-h{font-size:11pt}
+  .cv-summary{font-size:10pt}
+  .cv-job-title{font-size:11pt}
+  .cv-job-meta,.cv-job-intro,.cv-job li,.cv-contact{font-size:9.5pt}
+  .cv-tag,.cv-badge-meta{font-size:8.5pt}
+  .cv-badge-name{font-size:9.5pt}
+  .cv-job{break-inside:avoid;margin-bottom:10px}
+  a{color:var(--teal-dark);text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cv-back">
+  <a href="cvs.html" aria-label="Back to CVs index">← All CVs</a>
+  <div class="cv-back-actions">
+    <button class="cv-theme-btn" type="button" id="cvThemeBtn" aria-label="Toggle light and dark theme"><span aria-hidden="true">◐</span> Theme</button>
+    <button class="cv-print" type="button" onclick="window.print()" aria-label="Print or save as PDF">Print / Save PDF</button>
+  </div>
+</div>
+
+<main class="cv-page">
+
+  <aside class="cv-side" aria-label="Contact and credentials">
+    <div>
+      <div class="cv-name">Damaris<br>Alum</div>
+      <div class="cv-role">UX Researcher &amp; UI Designer</div>
+    </div>
+
+    <div>
+      <div class="cv-side-h">Contact</div>
+      <div class="cv-contact">
+        <a href="mailto:alum.damaris@gmail.com">📧 alum.damaris@gmail.com</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+        <a href="index.html">🌐 UX/UI Portfolio</a>
+        <a href="https://github.com/Alumsdesigns" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="cv-side-h">Credentials</div>
+      <div class="cv-badges">
+        <div class="cv-badge">
+          <span class="cv-badge-name">Google UX Design Professional Certificate</span>
+          <span class="cv-badge-meta">7 Certificates with Honors · Coursera · 2024</span>
+        </div>
+        <div class="cv-badge">
+          <span class="cv-badge-name">Diploma in Full Stack Software Development (AI Predictive Analysis)</span>
+          <span class="cv-badge-meta">Saint Mary's University, Scotland (Code Institute) · 2026</span>
+        </div>
+        <div class="cv-badge">
+          <span class="cv-badge-name">Cyberdogo — Cyber Security &amp; Information Governance</span>
+          <span class="cv-badge-meta">London · 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="cv-side-h">Core skills</div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Research</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Usability testing</span><span class="cv-tag">User interviews</span><span class="cv-tag">Moderated &amp; unmoderated</span><span class="cv-tag">Surveys</span><span class="cv-tag">Focus groups</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Analysis</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Affinity mapping</span><span class="cv-tag">Thematic analysis</span><span class="cv-tag">Journey mapping</span><span class="cv-tag">Personas</span><span class="cv-tag">Insight reports</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Design</div>
+        <div class="cv-tags">
+          <span class="cv-tag">UX/UI design</span><span class="cv-tag">Wireframing</span><span class="cv-tag">Prototyping</span><span class="cv-tag">Hi-fi design</span><span class="cv-tag">Design systems</span><span class="cv-tag">Style guides</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Project delivery</div>
+        <div class="cv-tags">
+          <span class="cv-tag">End-to-end PM</span><span class="cv-tag">User stories</span><span class="cv-tag">Sprint planning</span><span class="cv-tag">Kanban</span><span class="cv-tag">Milestone planning</span><span class="cv-tag">Agile stakeholder</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Technical</div>
+        <div class="cv-tags">
+          <span class="cv-tag">HTML5</span><span class="cv-tag">CSS</span><span class="cv-tag">JavaScript (ES6)</span><span class="cv-tag">Python</span><span class="cv-tag">Git/GitHub</span><span class="cv-tag">GitHub Actions</span><span class="cv-tag">Terraform</span><span class="cv-tag">Bash</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Engagement</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Stakeholder interviews</span><span class="cv-tag">Research presentation</span><span class="cv-tag">Feedback loop facilitation</span><span class="cv-tag">Iterative testing</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Execution</div>
+        <div class="cv-tags">
+          <span class="cv-tag">5 live deployed projects</span><span class="cv-tag">Research → launch</span><span class="cv-tag">Brief → build → ship</span><span class="cv-tag">End-to-end product launch</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Tools</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Figma</span><span class="cv-tag">Adobe XD</span><span class="cv-tag">Shopify</span><span class="cv-tag">Miro</span><span class="cv-tag">Google Forms</span><span class="cv-tag">Notion AI</span><span class="cv-tag">Canva AI</span><span class="cv-tag">Claude AI</span><span class="cv-tag">JIRA</span><span class="cv-tag">GitHub project board</span><span class="cv-tag">Cursor</span><span class="cv-tag">Gemini</span><span class="cv-tag">Google AI Studio</span><span class="cv-tag">Gemini API</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Accessibility</div>
+        <div class="cv-tags">
+          <span class="cv-tag">WCAG compliance</span><span class="cv-tag">Inclusive design</span><span class="cv-tag">Accessibility auditing</span><span class="cv-tag">Assistive tech awareness</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Information security</div>
+        <div class="cv-tags">
+          <span class="cv-tag">PII awareness</span><span class="cv-tag">GDPR compliance</span><span class="cv-tag">Secure data handling</span><span class="cv-tag">Privacy-by-design</span>
+        </div>
+      </div>
+
+      <div class="cv-skill-block">
+        <div class="cv-skill-label">Methodology</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Stanford Design Thinking</span><span class="cv-tag">Google UX Process</span><span class="cv-tag">Agile/Scrum</span><span class="cv-tag">User-centred design</span><span class="cv-tag">CRISP-DM</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <section class="cv-main">
+
+    <div>
+      <h2 class="cv-section-h">Professional summary</h2>
+      <p class="cv-summary">Empathetic and research-driven UX professional with over three years of experience delivering inclusive, user-centred digital experiences across non-profit, e-commerce and tech environments. Google-certified across the full UX design and research process, with hands-on experience in usability testing, accessibility, prototyping and agile product delivery. Passionate about designing for underrepresented communities and creating digital spaces where everyone belongs.</p>
+    </div>
+
+    <div>
+      <h2 class="cv-section-h">Professional experience</h2>
+
+      <article class="cv-job">
+        <div class="cv-job-title">Phase Innovate — Quality Assurance Tester &amp; UX Designer</div>
+        <div class="cv-job-meta"><span>Part-time, ~15 hrs/week</span><span>Dublin (remote)</span><span>January 2023 – Present</span></div>
+        <p class="cv-job-intro">Phase Innovate is an Irish non-profit empowering underrepresented communities — women, youth, migrants and marginalised groups — through technology education, entrepreneurship and STEM outreach. Partners include AWS, PwC, PayPal and Microsoft. Tech team of 34 engineers, one Tech Lead and one CTO.</p>
+        <ul>
+          <li>Conducted user research with underrepresented communities in tech — user interviews, focus groups, surveys and usability testing.</li>
+          <li>Designed accessible, inclusive interfaces for digital platforms, learning tools and event management systems.</li>
+          <li>Built and tested prototypes iteratively, reporting findings to stakeholders and informing design decisions.</li>
+          <li>Produced research reports sharing insights with programme teams to guide future development.</li>
+          <li>Evaluated programme effectiveness in addressing gender and racial gaps in tech access.</li>
+          <li>Collaborated with developers, educators and stakeholders to integrate user-centred design across all initiatives.</li>
+          <li>Contributed to community events and workshops, sharing UX knowledge and raising awareness of the organisation's mission.</li>
+          <li>Delivered 15+ documented UX improvements directly attributed to research and testing cycles.</li>
+        </ul>
+      </article>
+
+      <article class="cv-job">
+        <div class="cv-job-title">MyLocalDressmaker — UX Researcher, Designer &amp; QA Analyst (Freelance)</div>
+        <div class="cv-job-meta"><span>London</span><span>May 2023 – November 2023</span></div>
+        <p class="cv-job-intro">End-to-end UX research, design and testing for an independent London fashion e-commerce business. Full project available on portfolio. (Business has since retired.)</p>
+        <ul>
+          <li>Conducted discovery research to understand target audience needs, business goals and user pain points across a multi-product platform.</li>
+          <li>Facilitated usability testing workshops; reported a 100% improvement in user experience journey quality.</li>
+          <li>Created a complete brand identity from scratch — logo, colour palette, typography and iconography.</li>
+          <li>Redesigned information architecture, user journeys and interactive UI across all platform pages.</li>
+          <li>Built and launched the full Shopify store; validated complete user journey from browsing to payment.</li>
+          <li>Increased site views and engagement by 90% following relaunch; significantly reduced bounce rates.</li>
+        </ul>
+      </article>
+
+      <article class="cv-job">
+        <div class="cv-job-title">Environmental Risk Prediction System (Flood Modeling &amp; ML Pipeline)</div>
+        <div class="cv-job-meta"><span>Code Institute Diploma</span><span>Python, scikit-learn</span><span>2026</span></div>
+        <p class="cv-job-intro">End-to-end design, build and evaluation of an environmental risk prediction system — classification and regression ML pipelines wrapped in an accessible, interactive web dashboard. Project IP protected — high-level approach below.</p>
+        <ul>
+          <li>Built classification and regression ML pipelines using real-world hydrological and environmental monitoring data.</li>
+          <li>Implemented end-to-end ML lifecycle: automated data ingestion via API, data cleaning, feature engineering, model training, evaluation, and deployment as a live web application.</li>
+          <li>Applied CRISP-DM methodology with emphasis on reproducibility, versioning, and model evaluation across multiple feature sets.</li>
+          <li>Built an interactive dashboard for real-time risk prediction and scenario testing via user input.</li>
+        </ul>
+        <p class="cv-job-intro" style="margin-top:8px"><strong>Tools:</strong> Python · scikit-learn · Streamlit · Plotly · Figma · GitHub</p>
+      </article>
+    </div>
+
+    <div>
+      <h2 class="cv-section-h">Education &amp; training</h2>
+
+      <article class="cv-job cv-edu">
+        <div class="cv-job-title">Diploma in Full Stack Software Development (AI Predictive Analysis)</div>
+        <div class="cv-job-meta"><span>Saint Mary's University, Scotland (Code Institute)</span><span>March 2025 – April 2026</span></div>
+        <p class="cv-job-intro">Five live deployed projects: UX research · stakeholder interviews · user stories · iterative usability testing · feedback synthesis · task breakdown · agile sprint delivery · research to launch. Covers Python · Django · JavaScript · ML · Predictive Analytics.</p>
+      </article>
+
+      <article class="cv-job cv-edu">
+        <div class="cv-job-title">Cyberdogo Bootcamp — Cyber Security &amp; Information Governance</div>
+        <div class="cv-job-meta"><span>London</span><span>March – October 2024</span></div>
+        <p class="cv-job-intro">Three practical security projects covering PII handling, cloud security monitoring, CI/CD pipeline security and data privacy. Informs a research practice grounded in responsible, privacy-aware and GDPR-compliant design — directly applicable to ethical research, data handling and secure participant information management.</p>
+      </article>
+
+      <article class="cv-job cv-edu">
+        <div class="cv-job-title">Google UX Design Professional Certificate</div>
+        <div class="cv-job-meta"><span>7 Certificates with Honors · Coursera · London</span><span>January 2023 – February 2024</span></div>
+        <p class="cv-job-intro">User research · usability testing · affinity mapping · wireframing · prototyping · Figma · Adobe XD · accessibility. Two full case studies: Alumnus Steakhouse App and La Mode Fashion App, research through to iterated prototype.</p>
+      </article>
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+(function(){
+  const ROLES = {
+    'qa-junior': {
+      label: 'Junior QA Tester',
+      title: 'Damaris Alum — Junior QA Tester · CV',
+      summary: 'Detail-oriented junior QA tester with three years of hands-on experience writing structured test cases, running exploratory and regression cycles, and partnering with developers across non-profit, healthcare and e-commerce environments. Tested with real users on every project, with documented usability and accessibility findings. Currently expanding into Playwright automation, BrowserStack and ISTQB Foundation.'
+    },
+    'software-tester': {
+      label: 'Software Tester',
+      title: 'Damaris Alum — Software Tester · CV',
+      summary: 'Software tester with experience across manual, exploratory, regression, usability and accessibility testing. Worked with NHS occupational therapists on observational session testing (QuipOrder), validated end-to-end e-commerce flows (MyLocalDressmaker, +90% engagement) and ran structured test scenarios on ML pipelines (FloodSave). Comfortable in Agile teams — JIRA, test plans, defect lifecycle, UAT and stakeholder reporting.'
+    },
+    'uxui-designer': {
+      label: 'UX / UI Designer',
+      title: 'Damaris Alum — UX/UI Designer · CV',
+      summary: 'UX/UI designer with three years of end-to-end product experience and six live deployed apps across non-profit, healthcare, e-commerce and tech. Designed and shipped a full Shopify build with brand identity from scratch (MyLocalDressmaker, +90% engagement) and delivered 15+ documented UX improvements at Phase Innovate. Google UX certified, WCAG-AA-led, and confident moving from wireframe to hi-fi prototype in Figma.'
+    },
+    'uxui-researcher': {
+      label: 'UX / UI Researcher',
+      title: 'Damaris Alum — UX/UI Researcher · CV',
+      summary: 'Empathetic UX/UI researcher with 50+ usability test sessions and three years of evidence-led design across non-profit (Phase Innovate), healthcare (QuipOrder/NHS), e-commerce and ML environments. Comfortable running interviews, observational tests, surveys and synthesis — then translating findings into design changes engineers can ship. Privacy-aware, WCAG-led, Google UX certified across the full research and design process.'
+    },
+    'fullstack': {
+      label: 'Full Stack Developer',
+      title: 'Damaris Alum — Full Stack Developer · CV',
+      summary: 'Full stack developer with a Code Institute Diploma in Full Stack Software Development (AI Predictive Analysis) and six live deployed apps. Built Django/PostgreSQL applications with role-based access (NHS), Python/scikit-learn ML pipelines (FloodSave), a full Shopify store and accessible JavaScript front-ends. Comfortable across the SDLC — user stories through Git/GitHub Actions deployment — and confident in testing, accessibility and CRISP-DM practice.'
+    }
+  };
+
+  const params = new URLSearchParams(location.search);
+  const roleKey = params.get('role');
+  const r = ROLES[roleKey];
+
+  if(r){
+    document.title = r.title;
+    const roleEl = document.querySelector('.cv-role');
+    const summaryEl = document.querySelector('.cv-summary');
+    if(roleEl) roleEl.textContent = r.label;
+    if(summaryEl) summaryEl.textContent = r.summary;
+  }
+
+  // Auto-print when ?print=1 — give animations a beat to settle, then trigger
+  if(params.get('print') === '1'){
+    window.addEventListener('load', () => {
+      setTimeout(() => window.print(), 800);
+    });
+  }
+
+  // Theme toggle — persist choice across CV views
+  const root = document.documentElement;
+  const stored = localStorage.getItem('cv-theme');
+  if(stored === 'dark' || stored === 'light'){
+    root.dataset.theme = stored;
+  }
+  const themeBtn = document.getElementById('cvThemeBtn');
+  if(themeBtn){
+    themeBtn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try{ localStorage.setItem('cv-theme', next); }catch(e){}
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
