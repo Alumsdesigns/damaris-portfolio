@@ -138,12 +138,14 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;justify-content:flex-start;
-  padding:96px 4% 24px;
+  padding:96px 4% 8px;
   position:relative;overflow:hidden;
 }
 @media(max-width:920px){.hero{padding-top:88px}}
-#about{padding-top:32px}
-@media(max-width:600px){#about{padding-top:24px}}
+#about{padding-top:12px}
+#about .section-eyebrow{margin-bottom:8px}
+#about h2.section-title{margin-bottom:18px}
+@media(max-width:600px){#about{padding-top:8px}}
 .mesh{
   position:absolute;inset:0;z-index:0;
   background:
