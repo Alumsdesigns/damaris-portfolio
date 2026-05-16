@@ -147,9 +147,10 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;justify-content:flex-start;
-  padding:68px 4% 60px;
+  padding:96px 4% 60px;
   position:relative;overflow:hidden;
 }
+@media(max-width:920px){.hero{padding-top:88px}}
 .mesh{
   position:absolute;inset:0;z-index:0;
   background:
@@ -172,15 +173,16 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 }
 .hero-inner{
   position:relative;z-index:2;width:100%;max-width:none;
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);
-  gap:10px 32px;align-items:center;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);
+  gap:14px 16px;align-items:center;
 }
 .hero-text{min-width:0}
 .hero-visual{
   display:flex;align-items:center;justify-content:flex-start;
   position:relative;z-index:2;
-  justify-self:start;padding-right:0;
+  justify-self:start;padding-right:0;margin-left:-40px;
 }
+@media(max-width:920px){.hero-visual{margin-left:0}}
 .hero-stats{
   grid-column:1 / -1;margin-top:20px;
   display:flex;gap:18px;flex-wrap:nowrap;
@@ -1530,6 +1532,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offse
   text-align:center;padding:48px 6% 28px;
   border-top:0.5px solid var(--card-border);
   margin-top:40px;
+}
+@media(max-width:600px){
+  .go-by{padding:20px 5% 18px;margin-top:8px}
+  .go-by-eyebrow{margin-bottom:12px}
+  #contact{padding-bottom:24px}
 }
 .go-by-eyebrow{
   font-size:12px;text-transform:uppercase;letter-spacing:0.2em;
