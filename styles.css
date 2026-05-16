@@ -203,20 +203,19 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
     "chips chips"
     "text  visual"
     "stats stats";
-  gap:18px 0;align-items:center;
+  gap:18px 48px;align-items:center;
 }
 .hero-availability{grid-area:chips}
-.hero-text{grid-area:text;min-width:0;display:flex;flex-direction:column;gap:14px}
+.hero-text{grid-area:text;min-width:0;display:flex;flex-direction:column;gap:14px;padding-right:8px}
 .hero-text > *{margin:0}
 .hero-text .hero-bio{margin:0}
 .hero-visual{
   grid-area:visual;
   display:flex;align-items:center;justify-content:flex-start;
   position:relative;z-index:2;justify-self:start;
-  margin-left:-40px;
+  margin-left:0;
 }
 .hero-visual .hero-monogram{max-width:340px}
-@media(max-width:920px){.hero-visual{margin-left:0}}
 .hero-stats{grid-area:stats}
 @media(max-width:920px){
   .hero-inner{
