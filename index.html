@@ -11,6 +11,9 @@
 </head>
 <body>
 
+<!-- SKIP LINK (WCAG 2.4.1 Bypass Blocks) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
 <nav role="navigation" aria-label="Main navigation" id="nav">
   <a href="#hero" class="nav-logo" aria-label="Damaris Alum home">DA</a>
@@ -21,7 +24,7 @@
     <a href="#recommendations">Recommendations</a>
     <a href="#contact">Contact</a>
   </div>
-  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light and dark mode">◐ Theme</button>
+  <button class="theme-btn" type="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode" aria-pressed="false">◐ Theme</button>
 </nav>
 
 <!-- MAIN -->
@@ -32,16 +35,16 @@
   <div class="mesh" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="hero-inner">
-    <div class="hero-availability" aria-label="Availability, location and roles">
-      <span class="hero-avail-pill"><span class="hero-avail-dot" aria-hidden="true"></span>Open to work · Available now</span>
-      <span class="hero-avail-loc">UK or Ireland</span>
-      <span class="hero-avail-loc">Hybrid preferred</span>
-      <span class="hero-avail-loc">Remote EMEA &amp; global</span>
-      <span class="hero-role-tag">UX Researcher</span>
-      <span class="hero-role-tag">UI Designer</span>
-      <span class="hero-role-tag">QA Tester</span>
-      <span class="hero-role-tag">Full Stack Developer</span>
-      <span class="hero-role-tag">Accessibility Champion</span>
+    <div class="hero-availability" role="list" aria-label="Availability, location and roles">
+      <span class="hero-avail-pill" role="listitem"><span class="hero-avail-dot" aria-hidden="true"></span>Open to work · Available now</span>
+      <span class="hero-avail-loc" role="listitem">UK or Ireland</span>
+      <span class="hero-avail-loc" role="listitem">Hybrid preferred</span>
+      <span class="hero-avail-loc" role="listitem">Remote EMEA &amp; global</span>
+      <span class="hero-role-tag" role="listitem">UX Researcher</span>
+      <span class="hero-role-tag" role="listitem">UI Designer</span>
+      <span class="hero-role-tag" role="listitem">QA Tester</span>
+      <span class="hero-role-tag" role="listitem">Full Stack Developer</span>
+      <span class="hero-role-tag" role="listitem">Accessibility Champion</span>
     </div>
     <div class="hero-text">
       <h1 class="hero-name" id="hero-heading">Damaris<br><span>Alum</span></h1>
@@ -210,13 +213,13 @@
     </div>
   </aside>
 
-  <div class="filter-bar" role="group" aria-label="Filter work by type">
-    <button class="filter-btn active" onclick="filterCards('all',this)" aria-pressed="true">All</button>
-    <button class="filter-btn" onclick="filterCards('qa',this)" aria-pressed="false">QA Tester</button>
-    <button class="filter-btn" onclick="filterCards('ml',this)" aria-pressed="false">ML &amp; Data</button>
-    <button class="filter-btn" onclick="filterCards('fullstack',this)" aria-pressed="false">Full Stack</button>
-    <button class="filter-btn" onclick="filterCards('frontend',this)" aria-pressed="false">Front End</button>
-    <button class="filter-btn" onclick="filterCards('cli',this)" aria-pressed="false">CLI &amp; Python</button>
+  <div class="filter-bar" role="tablist" aria-label="Filter work by type">
+    <button class="filter-btn active" type="button" role="tab" onclick="filterCards('all',this)" aria-selected="true" aria-pressed="true">All</button>
+    <button class="filter-btn" type="button" role="tab" onclick="filterCards('qa',this)" aria-selected="false" aria-pressed="false">QA Tester</button>
+    <button class="filter-btn" type="button" role="tab" onclick="filterCards('ml',this)" aria-selected="false" aria-pressed="false">ML &amp; Data</button>
+    <button class="filter-btn" type="button" role="tab" onclick="filterCards('fullstack',this)" aria-selected="false" aria-pressed="false">Full Stack</button>
+    <button class="filter-btn" type="button" role="tab" onclick="filterCards('frontend',this)" aria-selected="false" aria-pressed="false">Front End</button>
+    <button class="filter-btn" type="button" role="tab" onclick="filterCards('cli',this)" aria-selected="false" aria-pressed="false">CLI &amp; Python</button>
   </div>
 
   <div class="ux-grid">
@@ -640,22 +643,22 @@
   <div class="section-eyebrow" aria-hidden="true">04 Skills</div>
   <h2 class="section-title" id="skills-heading">The full picture.</h2>
   <div class="skills-full-grid">
-    <div class="skill-block animate-card"><div class="skill-block-title">Manual Testing</div><div class="skill-block-tags"><span class="sk">Exploratory</span><span class="sk">Regression</span><span class="sk">Integration</span><span class="sk">UAT</span><span class="sk">Usability testing</span><span class="sk">WCAG accessibility</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Security Testing</div><div class="skill-block-tags"><span class="sk">SAST (SonarQube)</span><span class="sk">SCA (Dependabot)</span><span class="sk">IaC (Trivy)</span><span class="sk">Secrets detection (TruffleHog)</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">UX Research Methods</div><div class="skill-block-tags"><span class="sk">User interviews</span><span class="sk">Moderated testing</span><span class="sk">Unmoderated testing</span><span class="sk">Focus groups</span><span class="sk">Surveys</span><span class="sk">Observational research</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Analysis &amp; Synthesis</div><div class="skill-block-tags"><span class="sk">Affinity mapping</span><span class="sk">Thematic analysis</span><span class="sk">Journey mapping</span><span class="sk">Persona development</span><span class="sk">Insight reports</span><span class="sk">Statistical analysis</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Design</div><div class="skill-block-tags"><span class="sk">UX/UI design</span><span class="sk">Wireframing</span><span class="sk">Prototyping</span><span class="sk">Hi-fi design</span><span class="sk">Design systems</span><span class="sk">Brand identity</span><span class="sk">Style guides</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Design Tools</div><div class="skill-block-tags"><span class="sk">Figma</span><span class="sk">Adobe XD</span><span class="sk">Miro</span><span class="sk">Canva AI</span><span class="sk">Shopify</span><span class="sk">Google Forms</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Engineering &amp; DevOps</div><div class="skill-block-tags"><span class="sk">CI/CD pipelines</span><span class="sk">GitHub Actions</span><span class="sk">Source control</span><span class="sk">Branching</span><span class="sk">Test automation</span><span class="sk">Terraform</span><span class="sk">Bash scripting</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Development</div><div class="skill-block-tags"><span class="sk">Python</span><span class="sk">Django</span><span class="sk">JavaScript</span><span class="sk">HTML5</span><span class="sk">CSS3</span><span class="sk">SQL</span><span class="sk">PostgreSQL</span><span class="sk">Git/GitHub</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Data &amp; ML</div><div class="skill-block-tags"><span class="sk">scikit-learn</span><span class="sk">Streamlit</span><span class="sk">Plotly</span><span class="sk">Pandas</span><span class="sk">SciPy</span><span class="sk">Random Forest</span><span class="sk">CRISP-DM</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Cloud &amp; Infrastructure</div><div class="skill-block-tags"><span class="sk">AWS GuardDuty</span><span class="sk">Security Hub</span><span class="sk">Lambda</span><span class="sk">SNS</span><span class="sk">Heroku</span><span class="sk">GitHub Pages</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">AI Tools</div><div class="skill-block-tags"><span class="sk">Google AI Studio</span><span class="sk">Gemini API</span><span class="sk">Claude AI</span><span class="sk">GitHub Copilot</span><span class="sk">Cursor</span><span class="sk">Notion AI</span><span class="sk">Perplexity</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Project Delivery</div><div class="skill-block-tags"><span class="sk">Agile/Scrum</span><span class="sk">Kanban</span><span class="sk">Sprint planning</span><span class="sk">User stories</span><span class="sk">GitHub Projects</span><span class="sk">Stakeholder management</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Accessibility</div><div class="skill-block-tags"><span class="sk">WCAG 2.1 AA</span><span class="sk">Inclusive design</span><span class="sk">Accessibility auditing</span><span class="sk">Screen readers</span><span class="sk">Keyboard navigation</span><span class="sk">ARIA</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Information Security</div><div class="skill-block-tags"><span class="sk">PII awareness</span><span class="sk">GDPR compliance</span><span class="sk">Secure data handling</span><span class="sk">Privacy-by-design</span><span class="sk">Access control</span></div></div>
-    <div class="skill-block animate-card"><div class="skill-block-title">Methodology</div><div class="skill-block-tags"><span class="sk">Stanford Design Thinking</span><span class="sk">Google UX Process</span><span class="sk">CRISP-DM</span><span class="sk">User-centred design</span><span class="sk">Agile/Scrum</span></div></div>
-    <div class="skill-block skill-block-learning animate-card"><div class="skill-block-title">Currently Learning</div><div class="skill-block-tags"><span class="sk sk-learning">Playwright automation</span><span class="sk sk-learning">AI for testing</span><span class="sk sk-learning">Applitools</span><span class="sk sk-learning">BrowserStack</span><span class="sk sk-learning">ISTQB Foundation</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Manual Testing</h3><div class="skill-block-tags"><span class="sk">Exploratory</span><span class="sk">Regression</span><span class="sk">Integration</span><span class="sk">UAT</span><span class="sk">Usability testing</span><span class="sk">WCAG accessibility</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Security Testing</h3><div class="skill-block-tags"><span class="sk">SAST (SonarQube)</span><span class="sk">SCA (Dependabot)</span><span class="sk">IaC (Trivy)</span><span class="sk">Secrets detection (TruffleHog)</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">UX Research Methods</h3><div class="skill-block-tags"><span class="sk">User interviews</span><span class="sk">Moderated testing</span><span class="sk">Unmoderated testing</span><span class="sk">Focus groups</span><span class="sk">Surveys</span><span class="sk">Observational research</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Analysis &amp; Synthesis</h3><div class="skill-block-tags"><span class="sk">Affinity mapping</span><span class="sk">Thematic analysis</span><span class="sk">Journey mapping</span><span class="sk">Persona development</span><span class="sk">Insight reports</span><span class="sk">Statistical analysis</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Design</h3><div class="skill-block-tags"><span class="sk">UX/UI design</span><span class="sk">Wireframing</span><span class="sk">Prototyping</span><span class="sk">Hi-fi design</span><span class="sk">Design systems</span><span class="sk">Brand identity</span><span class="sk">Style guides</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Design Tools</h3><div class="skill-block-tags"><span class="sk">Figma</span><span class="sk">Adobe XD</span><span class="sk">Miro</span><span class="sk">Canva AI</span><span class="sk">Shopify</span><span class="sk">Google Forms</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Engineering &amp; DevOps</h3><div class="skill-block-tags"><span class="sk">CI/CD pipelines</span><span class="sk">GitHub Actions</span><span class="sk">Source control</span><span class="sk">Branching</span><span class="sk">Test automation</span><span class="sk">Terraform</span><span class="sk">Bash scripting</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Development</h3><div class="skill-block-tags"><span class="sk">Python</span><span class="sk">Django</span><span class="sk">JavaScript</span><span class="sk">HTML5</span><span class="sk">CSS3</span><span class="sk">SQL</span><span class="sk">PostgreSQL</span><span class="sk">Git/GitHub</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Data &amp; ML</h3><div class="skill-block-tags"><span class="sk">scikit-learn</span><span class="sk">Streamlit</span><span class="sk">Plotly</span><span class="sk">Pandas</span><span class="sk">SciPy</span><span class="sk">Random Forest</span><span class="sk">CRISP-DM</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Cloud &amp; Infrastructure</h3><div class="skill-block-tags"><span class="sk">AWS GuardDuty</span><span class="sk">Security Hub</span><span class="sk">Lambda</span><span class="sk">SNS</span><span class="sk">Heroku</span><span class="sk">GitHub Pages</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">AI Tools</h3><div class="skill-block-tags"><span class="sk">Google AI Studio</span><span class="sk">Gemini API</span><span class="sk">Claude AI</span><span class="sk">GitHub Copilot</span><span class="sk">Cursor</span><span class="sk">Notion AI</span><span class="sk">Perplexity</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Project Delivery</h3><div class="skill-block-tags"><span class="sk">Agile/Scrum</span><span class="sk">Kanban</span><span class="sk">Sprint planning</span><span class="sk">User stories</span><span class="sk">GitHub Projects</span><span class="sk">Stakeholder management</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Accessibility</h3><div class="skill-block-tags"><span class="sk">WCAG 2.1 AA</span><span class="sk">Inclusive design</span><span class="sk">Accessibility auditing</span><span class="sk">Screen readers</span><span class="sk">Keyboard navigation</span><span class="sk">ARIA</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Information Security</h3><div class="skill-block-tags"><span class="sk">PII awareness</span><span class="sk">GDPR compliance</span><span class="sk">Secure data handling</span><span class="sk">Privacy-by-design</span><span class="sk">Access control</span></div></div>
+    <div class="skill-block animate-card"><h3 class="skill-block-title">Methodology</h3><div class="skill-block-tags"><span class="sk">Stanford Design Thinking</span><span class="sk">Google UX Process</span><span class="sk">CRISP-DM</span><span class="sk">User-centred design</span><span class="sk">Agile/Scrum</span></div></div>
+    <div class="skill-block skill-block-learning animate-card"><h3 class="skill-block-title">Currently Learning</h3><div class="skill-block-tags"><span class="sk sk-learning">Playwright automation</span><span class="sk sk-learning">AI for testing</span><span class="sk sk-learning">Applitools</span><span class="sk sk-learning">BrowserStack</span><span class="sk sk-learning">ISTQB Foundation</span></div></div>
   </div>
 </section>
 
@@ -844,11 +847,38 @@
 </div>
 
 <script>
-// Theme toggle
+// Theme toggle (with aria-pressed sync)
 function toggleTheme(){
   const h=document.documentElement;
-  h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';
+  const next=h.dataset.theme==='dark'?'light':'dark';
+  h.dataset.theme=next;
+  const btn=document.getElementById('themeToggle');
+  if(btn)btn.setAttribute('aria-pressed',String(next==='dark'));
 }
+
+// Nav scroll-spy: mark current section's link with aria-current="page"
+(function(){
+  const links=document.querySelectorAll('.nav-links a[href^="#"]');
+  if(!links.length)return;
+  const map=new Map();
+  links.forEach(a=>{
+    const id=a.getAttribute('href').slice(1);
+    const sec=document.getElementById(id);
+    if(sec)map.set(sec,a);
+  });
+  if(!map.size)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      const link=map.get(e.target);
+      if(!link)return;
+      if(e.isIntersecting){
+        links.forEach(l=>l.removeAttribute('aria-current'));
+        link.setAttribute('aria-current','page');
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px',threshold:0});
+  map.forEach((_,sec)=>io.observe(sec));
+})();
 
 // Role typewriter
 const roles=['UX Researcher','QA Tester','Software Tester','UX/UI Designer','Full Stack Developer'];
@@ -883,10 +913,16 @@ if(reduceMotion){
 const btt=document.getElementById('btt');
 window.addEventListener('scroll',()=>btt.classList.toggle('show',scrollY>380),{passive:true});
 
-// Filter with aria-pressed
+// Filter with aria-pressed + aria-selected (tablist semantics)
 function filterCards(cat,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
-  btn.classList.add('active');btn.setAttribute('aria-pressed','true');
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-selected','false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-pressed','true');
+  btn.setAttribute('aria-selected','true');
   document.querySelectorAll('[data-cat]').forEach(c=>{
     const cats=(c.dataset.cat||'').split(/\s+/);
     c.style.display=(cat==='all'||cats.includes(cat))?'':'none';
