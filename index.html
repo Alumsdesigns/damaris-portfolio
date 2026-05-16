@@ -92,10 +92,15 @@
             <stop offset="80%" stop-color="rgba(255,180,90,0.25)"/>
             <stop offset="100%" stop-color="rgba(255,236,94,0)"/>
           </radialGradient>
+          <radialGradient id="brandGlowLight" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(197,160,33,0.22)"/>
+            <stop offset="55%" stop-color="rgba(226,200,124,0.14)"/>
+            <stop offset="100%" stop-color="rgba(251,249,246,0)"/>
+          </radialGradient>
           <path id="processArc" d="M 220 220 m -178 0 a 178 178 0 1 1 356 0 a 178 178 0 1 1 -356 0" fill="none"/>
         </defs>
-        <circle cx="220" cy="220" r="215" fill="url(#brandGlowOuter)"/>
-        <circle cx="220" cy="220" r="210" fill="url(#brandGlow)"/>
+        <circle cx="220" cy="220" r="215" fill="url(#brandGlowOuter)" class="hero-brand-glow-outer"/>
+        <circle cx="220" cy="220" r="210" fill="url(#brandGlow)" class="hero-brand-glow"/>
         <circle cx="220" cy="220" r="178" fill="none" stroke="rgba(13,13,13,0.3)" stroke-width="0.6" stroke-dasharray="2 5"/>
         <circle cx="220" cy="220" r="140" fill="none" stroke="rgba(13,13,13,0.14)" stroke-width="0.5"/>
         <g class="hero-process-ring">
@@ -103,6 +108,7 @@
         </g>
         <g class="hero-brand-disk">
           <circle cx="220" cy="220" r="96" fill="url(#brandGradient)" class="hero-brand-base"/>
+          <circle cx="220" cy="220" r="64" fill="none" class="hero-brand-inner"/>
           <circle cx="220" cy="220" r="96" fill="url(#brandShimmer)" class="hero-brand-shimmer"/>
         </g>
         <text x="220" y="240" text-anchor="middle" class="hero-monogram-text">DA</text>

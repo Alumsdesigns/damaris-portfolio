@@ -138,10 +138,12 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;justify-content:flex-start;
-  padding:96px 4% 60px;
+  padding:96px 4% 24px;
   position:relative;overflow:hidden;
 }
 @media(max-width:920px){.hero{padding-top:88px}}
+#about{padding-top:32px}
+@media(max-width:600px){#about{padding-top:24px}}
 .mesh{
   position:absolute;inset:0;z-index:0;
   background:
@@ -165,12 +167,12 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero-inner{
   position:relative;z-index:2;width:100%;max-width:none;
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(280px,360px);
+  grid-template-columns:minmax(0,1fr) minmax(260px,320px);
   grid-template-areas:
     "chips chips"
     "text  visual"
     "stats stats";
-  gap:18px 32px;align-items:center;
+  gap:18px 0;align-items:center;
 }
 .hero-availability{grid-area:chips}
 .hero-text{grid-area:text;min-width:0;display:flex;flex-direction:column;gap:14px}
@@ -178,10 +180,12 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero-text .hero-bio{margin:0}
 .hero-visual{
   grid-area:visual;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;z-index:2;justify-self:end;
+  display:flex;align-items:center;justify-content:flex-start;
+  position:relative;z-index:2;justify-self:start;
+  margin-left:-40px;
 }
-.hero-visual .hero-monogram{max-width:360px}
+.hero-visual .hero-monogram{max-width:340px}
+@media(max-width:920px){.hero-visual{margin-left:0}}
 .hero-stats{grid-area:stats}
 @media(max-width:920px){
   .hero-inner{
@@ -194,8 +198,15 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 }
 @media(max-width:600px){.hero-visual .hero-monogram{max-width:220px}}
 
-/* Light-mode gold + black brand disc (overrides red gradient) */
-[data-theme="light"] .hero-brand-base{fill:url(#brandGradientLight)}
+/* Light-mode brand monogram: solid gold disc, black DA (no red anywhere) */
+[data-theme="light"] .hero-brand-base{fill:#C5A021}
+[data-theme="light"] .hero-brand-inner{fill:#C5A021}
+[data-theme="light"] .hero-brand-shimmer{opacity:0.2}
+[data-theme="light"] .hero-brand-glow{fill:url(#brandGlowLight)}
+[data-theme="light"] .hero-brand-glow-outer{fill:transparent}
+[data-theme="light"] .hero-monogram{
+  filter:drop-shadow(0 22px 52px rgba(197,160,33,0.28));
+}
 .hero-stats{
   grid-column:1 / -1;margin-top:20px;
   display:flex;gap:18px;flex-wrap:nowrap;
@@ -236,7 +247,7 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
   paint-order:stroke;stroke:rgba(255,250,240,0.55);stroke-width:1.4;stroke-linejoin:round;
 }
 [data-theme="light"] .hero-process-text{
-  fill:#9c7e16;stroke:rgba(255,253,247,0.9);stroke-width:1.6;
+  fill:#0d0d0d;stroke:rgba(255,253,247,0.7);stroke-width:1.4;
 }
 .hero-monogram-text{
   fill:#0d0d0d;font-family:'Fraunces',Georgia,serif;
@@ -244,7 +255,7 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
   paint-order:stroke;stroke:rgba(255,250,240,0.55);stroke-width:1.4;stroke-linejoin:round;
 }
 [data-theme="light"] .hero-monogram-text{
-  fill:#9c7e16;stroke:rgba(255,253,247,0.9);stroke-width:1.8;
+  fill:#0d0d0d;stroke:rgba(255,253,247,0.85);stroke-width:1.8;
 }
 .hero-tagline-text{
   fill:#0d0d0d;font-family:'DM Sans',sans-serif;
@@ -252,7 +263,7 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
   paint-order:stroke;stroke:rgba(255,250,240,0.55);stroke-width:1.4;stroke-linejoin:round;
 }
 [data-theme="light"] .hero-tagline-text{
-  fill:#9c7e16;stroke:rgba(255,253,247,0.9);stroke-width:1.6;
+  fill:#0d0d0d;stroke:rgba(255,253,247,0.7);stroke-width:1.4;
 }
 @keyframes daShimmer{
   0%,72%,100%{fill:#0d0d0d}
@@ -443,10 +454,7 @@ h1.hero-name span{color:var(--teal)}
 }
 .role-word{
   color:var(--teal);font-weight:500;
-  border-right:2px solid var(--teal);padding-right:3px;
-  animation:blink 1s step-end infinite;
 }
-@keyframes blink{0%,100%{border-color:var(--teal)}50%{border-color:transparent}}
 .hero-bio{
   font-size:18px;color:var(--text-muted);
   max-width:540px;line-height:1.8;margin-bottom:28px;font-weight:300;
