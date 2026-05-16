@@ -198,12 +198,12 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero-inner{
   position:relative;z-index:2;width:100%;max-width:none;
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(260px,320px);
+  grid-template-columns:minmax(0,560px) minmax(260px,320px) 1fr;
   grid-template-areas:
-    "chips chips"
-    "text  visual"
-    "stats stats";
-  gap:18px 48px;align-items:center;
+    "chips chips  chips"
+    "text  visual ."
+    "stats stats  stats";
+  gap:18px 32px;align-items:center;
 }
 .hero-availability{grid-area:chips}
 .hero-text{grid-area:text;min-width:0;display:flex;flex-direction:column;gap:14px;padding-right:8px}
@@ -849,6 +849,33 @@ h3.ux-card-title{font-family:var(--serif);font-size:17px;font-weight:500;color:v
   font-size:12px;display:inline-block;margin-right:6px;
 }
 [data-theme="light"] .principle-practice{color:var(--text-muted)}
+
+/* ── WIDE UX CARD (spans 3 columns, horizontal layout) ── */
+.ux-card-wide{grid-column:span 3;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2.1fr);align-items:stretch}
+.ux-card-wide .ux-card-img{height:auto;min-height:100%;font-size:28px}
+.ux-card-wide .ux-card-body{padding:20px 24px}
+@media(max-width:1100px){.ux-card-wide{grid-column:span 2}}
+@media(max-width:780px){.ux-card-wide{grid-column:1 / -1;grid-template-columns:1fr}.ux-card-wide .ux-card-img{min-height:140px}}
+
+/* ── DOUBLE UX CARD (spans 2 columns, horizontal layout) ── */
+.ux-card-double{grid-column:span 2;display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.6fr);align-items:stretch}
+.ux-card-double .ux-card-img{height:auto;min-height:100%;font-size:22px}
+.ux-card-double .ux-card-body{padding:18px 22px}
+@media(max-width:780px){.ux-card-double{grid-column:1 / -1;grid-template-columns:1fr}.ux-card-double .ux-card-img{min-height:140px}}
+
+/* ── MLD project divider (between case study and brand toolkit halves) ── */
+.mld-project-divider{
+  position:relative;margin:6px 20px 0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(42,157,143,0.22) 18%,rgba(42,157,143,0.22) 82%,transparent 100%);
+}
+.mld-project-divider::after{
+  content:"Same project · Brand toolkit ↓";
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  background:var(--card-bg);padding:2px 12px;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--teal);font-weight:500;white-space:nowrap;
+}
+[data-theme="light"] .mld-project-divider::after{background:rgba(255,255,255,0.95)}
 
 /* ── FEATURE UX CARD (full-width case study) ── */
 .ux-card-feature{grid-column:1 / -1}
