@@ -6,9 +6,23 @@ The site is fully responsive, accessible to WCAG 2.1 AA, and ships with a light 
 
 Primary audience: hiring managers, agency leads and product teams looking for a UX practitioner who can run research, design accessible interfaces, write the production code and test it end-to-end.
 
-[![View Live Site](https://img.shields.io/badge/▶_View_Live_Portfolio-bc0000?style=for-the-badge&logoColor=white)](https://alumsdesigns.github.io/damaris-portfolio/)
-[![Book Intro Chat](https://img.shields.io/badge/💬_Book_Intro_Chat-0a3020?style=for-the-badge&logoColor=white)](https://www.linkedin.com/in/damaris-alum/)
-[![View Code](https://img.shields.io/badge/⌥_View_Code-0d0d0d?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Alumsdesigns/damaris-portfolio)
+<p align="center">
+  <a href="https://alumsdesigns.github.io/damaris-portfolio/">
+    <img src="https://img.shields.io/badge/▶%20%20VIEW%20LIVE%20PORTFOLIO%20%20↗-bc0000?style=for-the-badge&labelColor=8a0000&logoColor=white" height="56" alt="View Live Portfolio">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/damaris-alum/">
+    <img src="https://img.shields.io/badge/💬%20%20BOOK%20INTRO%20CHAT%20%20↗-0a3020?style=for-the-badge&labelColor=062320&logoColor=white" height="56" alt="Book Intro Chat">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/Alumsdesigns/damaris-portfolio">
+    <img src="https://img.shields.io/badge/⌥%20%20VIEW%20CODE%20%20↗-0d0d0d?style=for-the-badge&labelColor=000000&logo=github&logoColor=white" height="56" alt="View Code">
+  </a>
+</p>
+
+<p align="center">
+  <sub>↑ Live site · LinkedIn intro chat · Source code on GitHub</sub>
+</p>
 
 ---
 
@@ -165,6 +179,7 @@ Decorative pictographs use Unicode glyphs (`✓ ◉ ◇ ⟨⟩ ⚡ ♿ 🔄 🧩
 - **GitHub** — repository hosting
 - **GitHub Pages** — static site deployment
 - **VS Code** — development environment
+- **[Claude Code](https://claude.com/claude-code)** (Anthropic) — AI pair-programming CLI used throughout for code edits, accessibility checks, semantic HTML review and brand-system iteration
 - **Chrome DevTools / Firefox DevTools / Safari DevTools** — cross-browser testing and debugging
 - **Lighthouse** — performance, accessibility, SEO and best-practice audits
 - **WAVE / axe DevTools** — accessibility auditing
@@ -255,7 +270,9 @@ python3 -m http.server 8000
 # 7. Credits
 
 ## Code
-- All website code hand-written by **Damaris Alum**. No frameworks, no templates, no UI libraries.
+- Built by **Damaris Alum** with **[Claude Code](https://claude.com/claude-code)** (Anthropic's official CLI for Claude) as an AI pair-programmer. Every design decision, accessibility choice, brand direction, copy line and architectural call was driven by Damaris — Claude Code executed the edits, generated CSS scaffolding from spoken intent, and helped maintain WCAG and semantic-HTML rigour across iterations.
+- No frameworks, no UI libraries, no templates. Vanilla HTML, CSS and JavaScript end-to-end.
+- This README itself was drafted by Claude Code from the live source, then reviewed and approved by Damaris.
 
 ## Content
 - All copy, project narratives, case-study text, brand guide voice and recommendation framing written by **Damaris Alum**.
@@ -277,4 +294,5 @@ python3 -m http.server 8000
 - **Martha Taylor** at JLR for the cross-team QA mentorship referenced in the recommendations section.
 - **Aqua Ofosuhene** at MyLocalDressmaker for trusting the end-to-end brand and Shopify build.
 - **Code Institute** and **St Mary's University, Scotland** for the Diploma in Full Stack Software Development with Predictive Analytics.
+- **Anthropic** for [Claude Code](https://claude.com/claude-code) and Claude Opus 4.7, the AI pair-programming tools used throughout this build.
 - **Google UX Design Certificate** programme for the seven-certificate research and design grounding.
