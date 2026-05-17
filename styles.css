@@ -882,7 +882,7 @@ button.link-live{background-color:#C5A021}
   transition:all var(--tr);opacity:0;transform:translateY(8px);
 }
 .ux-card.visible{opacity:1;transform:translateY(0)}
-.ux-card:hover,.ux-card:focus-within{border-color:var(--card-accent,var(--teal));border-width:1.5px;transform:translateY(-3px);box-shadow:0 10px 32px rgba(42,157,143,0.12)}
+.ux-card:hover,.ux-card:focus-within{border-color:var(--card-accent,var(--teal));transform:translateY(-3px);box-shadow:0 0 0 1px var(--card-accent,var(--teal)), 0 10px 32px rgba(42,157,143,0.12)}
 [data-theme="light"] .ux-card{background:rgba(255,255,255,0.95)}
 .ux-card-img{
   height:140px;display:flex;align-items:center;justify-content:center;
@@ -1045,14 +1045,14 @@ h3.ux-card-title{font-family:var(--serif);font-size:17px;font-weight:500;color:v
 }
 .mld-hero-expand::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,0.55) 50%,transparent 65%);
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,0.7) 50%,transparent 70%);
   transform:translateX(-110%);
-  animation:mldExpandShimmer 3s ease-in-out infinite;
+  animation:mldExpandShimmer 2.2s linear infinite;
   pointer-events:none;
 }
 @keyframes mldExpandShimmer{
   0%{transform:translateX(-110%)}
-  55%,100%{transform:translateX(110%)}
+  100%{transform:translateX(110%)}
 }
 .mld-hero-expand:hover,.mld-hero-expand:focus-visible{
   background:linear-gradient(135deg,var(--teal-mid,#1f7d70),var(--teal));
@@ -1615,6 +1615,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offse
 .rec-card:hover{
   border-color:var(--teal);transform:translateY(-3px);
   box-shadow:0 10px 28px rgba(42,157,143,0.12);
+}
+.rec-card.is-current{
+  border-color:#6D1B28;
+  box-shadow:0 0 0 1.5px #6D1B28, 0 12px 32px rgba(109,27,40,0.18);
 }
 .rec-card::before{
   content:'\201C';position:absolute;top:6px;right:18px;

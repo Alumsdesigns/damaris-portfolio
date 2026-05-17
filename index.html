@@ -1001,7 +1001,7 @@
           <span style="padding:8px 14px;border-radius:50px;background:#6D1B28;color:#fff;font-size:12px;font-weight:500;letter-spacing:0.06em">✓ TEST</span>
           <span style="padding:8px 14px;border-radius:50px;background:#0d0d0d;color:#fff;font-size:12px;font-weight:500;letter-spacing:0.06em">✓ SHIP</span>
           <span style="padding:8px 14px;border-radius:50px;background:#6D1B28;color:#fff;font-size:12px;font-weight:500;letter-spacing:0.06em">✓ TEST</span>
-          <span style="padding:8px 14px;border-radius:50px;background:#C5A021;color:#fff;font-size:12px;font-weight:500;letter-spacing:0.06em">✓ SMILE</span>
+          <span style="padding:8px 14px;border-radius:50px;background:#fff;color:#9c7e16;border:1.5px solid #C5A021;font-size:12px;font-weight:500;letter-spacing:0.06em">✓ SMILE</span>
         </div>
       </section>
 
@@ -1300,6 +1300,7 @@ document.querySelectorAll('.mld-mb-flip').forEach(btn=>{
   const prev=document.getElementById('recsPrev');
   const next=document.getElementById('recsNext');
   let current=0;
+  cards[0]?.classList.add('is-current');
 
   function goTo(i){
     current=(i+cards.length)%cards.length;
@@ -1310,6 +1311,7 @@ document.querySelectorAll('.mld-mb-flip').forEach(btn=>{
       d.classList.toggle('active',j===current);
       d.setAttribute('aria-selected',String(j===current));
     });
+    cards.forEach((c,j)=>c.classList.toggle('is-current',j===current));
   }
 
   prev?.addEventListener('click',()=>goTo(current-1));
@@ -1333,6 +1335,7 @@ document.querySelectorAll('.mld-mb-flip').forEach(btn=>{
           d.classList.toggle('active',j===current);
           d.setAttribute('aria-selected',String(j===current));
         });
+        cards.forEach((c,j)=>c.classList.toggle('is-current',j===current));
       }
     },120);
   });
