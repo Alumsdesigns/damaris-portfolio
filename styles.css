@@ -785,7 +785,7 @@ h3.card-title{
 
 /* ── CARD PREVIEW (live + GitHub tile pair, visually invites click) ── */
 .card-preview-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:10px 0;
 }
 @media(max-width:520px){.card-preview-row{grid-template-columns:1fr}}
 .card-preview{
