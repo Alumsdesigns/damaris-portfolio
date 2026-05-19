@@ -904,7 +904,7 @@ h3.principle-title{
 }
 [data-theme="light"] .filter-btn{border-color:rgba(109,27,40,0.32);color:#4a1018}
 .filter-btn:hover,.filter-btn.active{
-  background:#C5A021;color:#fff;border-color:#C5A021;
+  background:#C5A021;color:#4a1018;border-color:#C5A021;font-weight:600;
 }
 .filter-btn:focus{outline:2px solid #C5A021;outline-offset:2px}
 
@@ -993,12 +993,14 @@ h3.card-title{
 }
 .card-preview::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,0.22) 50%,transparent 60%);
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.55) 50%,transparent 65%);
   transform:translateX(-110%);transition:transform 0.55s ease;
   pointer-events:none;
 }
 @media(prefers-reduced-motion:no-preference){
-  .card-preview::before{animation:goByShimmer 6.5s ease-in-out 0.8s infinite}
+  .card-preview::before{animation:goByShimmer 18s ease-in-out 1.5s infinite}
+  .card-preview:nth-of-type(2)::before{animation-delay:5s}
+  .card-preview:nth-of-type(3)::before{animation-delay:8.5s}
   .card-preview:hover::before,.card-preview:focus-visible::before{animation:none}
 }
 .card-preview:hover,.card-preview:focus-visible{
@@ -1719,18 +1721,24 @@ footer{
 .footer-name{font-family:var(--serif);color:var(--teal);font-size:16px}
 .footer-note{font-size:13px;color:var(--text-muted)}
 
-/* ── BACK TO TOP ── */
+/* ── BACK TO TOP ── (light: burgundy + cream, dark: deep teal + cream — both 11:1+) */
 .btt{
-  position:fixed;bottom:24px;right:24px;width:42px;height:42px;
-  border-radius:50%;background:var(--teal);color:#fff;
-  border:none;cursor:pointer;font-size:21px;
+  position:fixed;bottom:24px;right:24px;width:44px;height:44px;
+  border-radius:50%;background:#4a1018;color:#FBF9F6;
+  border:2px solid #4a1018;cursor:pointer;font-size:22px;font-weight:700;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 16px rgba(42,157,143,0.4);
+  box-shadow:0 4px 16px rgba(74,16,24,0.4);
   transition:all var(--tr);opacity:0;pointer-events:none;z-index:50;
 }
+[data-theme="dark"] .btt{
+  background:#0a3630;border-color:#0a3630;color:#FBF9F6;
+  box-shadow:0 4px 16px rgba(10,54,48,0.55);
+}
 .btt.show{opacity:1;pointer-events:all}
-.btt:hover{transform:translateY(-2px);background:var(--teal-mid)}
-.btt:focus{outline:2px solid var(--teal);outline-offset:3px}
+.btt:hover{transform:translateY(-2px);background:#FBF9F6;color:#4a1018;border-color:#4a1018}
+[data-theme="dark"] .btt:hover{background:#FBF9F6;color:#0a3630;border-color:#0a3630}
+.btt:focus{outline:2px solid #4a1018;outline-offset:3px}
+[data-theme="dark"] .btt:focus{outline-color:#0a3630}
 
 /* ── RESPONSIVE ── */
 @media(max-width:920px){
@@ -2095,15 +2103,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offse
   .mld-carousel-nav:hover,
   .mld-carousel-nav:focus-visible,
   .go-by-badge-icon,
-  .btt,
   .card-preview:hover .card-preview-icon,
   .card-preview:focus-visible .card-preview-icon,
   .btn-ghost:hover,
   .btn-ghost:focus,
-  .btn-ghost:focus-visible
+  .btn-ghost:focus-visible,
+  .link-live
 ){
   background:#1a6b5e;
   border-color:#1a6b5e;
   color:#FBF9F6;
+}
+/* Dark-mode hover = invert: deep teal flips to cream bg + deep teal text */
+[data-theme="dark"] :is(
+  .btn-primary:hover,.btn-primary:focus,
+  .btn-primary-lg:hover,.btn-primary-lg:focus,
+  .link-live:hover,.link-live:focus
+){
+  background:#FBF9F6!important;
+  color:#1a6b5e!important;
+  border-color:#1a6b5e!important;
+  outline:2px solid #1a6b5e;outline-offset:2px;
 }
 
