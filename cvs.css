@@ -173,6 +173,22 @@ h1.cv-title span{color:var(--teal);font-style:italic;font-weight:300}
   background:var(--teal-pale);outline:none;transform:translateY(-1px);
 }
 
+/* Dark-mode contrast tweaks for CV card buttons */
+[data-theme="dark"] .cv-card-btn-primary{
+  background:#1a6b5e;border-color:#1a6b5e;color:#FBF9F6;
+}
+[data-theme="dark"] .cv-card-btn-primary:hover,
+[data-theme="dark"] .cv-card-btn-primary:focus-visible{
+  background:#0a3630;border-color:#0a3630;color:#FBF9F6;
+}
+[data-theme="dark"] .cv-card-btn-ghost{
+  color:#f5efe2;border-color:#3eb8a8;
+}
+[data-theme="dark"] .cv-card-btn-ghost:hover,
+[data-theme="dark"] .cv-card-btn-ghost:focus-visible{
+  background:rgba(245,239,226,0.08);color:#FBF9F6;border-color:#7cf6c2;
+}
+
 .cv-footnote{
   margin-top:48px;font-size:13px;color:var(--text-dim);
   text-align:center;font-weight:300;line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto;
