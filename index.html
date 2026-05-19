@@ -114,11 +114,23 @@
           <circle cx="220" cy="220" r="64" fill="none" class="hero-brand-inner"/>
           <circle cx="220" cy="220" r="96" fill="url(#brandShimmer)" class="hero-brand-shimmer"/>
         </g>
-        <g class="hero-spark" role="img" aria-label="Signature spark mark, abstract flourish representing craft and momentum">
-          <path d="M 156 272 C 188 254, 212 232, 230 210 C 252 184, 270 168, 288 152" class="spark-trail" fill="none"/>
-          <path d="M 174 284 C 200 280, 226 276, 250 270" class="spark-flair" fill="none"/>
-          <circle cx="296" cy="146" r="8" class="spark-dot"/>
-          <circle cx="296" cy="146" r="3" class="spark-core"/>
+        <g class="hero-envelope" role="img" aria-label="Wax-sealed envelope with DA monogram, opens to reveal a welcome">
+          <rect class="env-back" x="160" y="192" width="120" height="90" rx="4"/>
+          <g class="env-letter">
+            <rect class="env-paper" x="170" y="202" width="100" height="70" rx="2"/>
+            <text class="env-welcome" x="220" y="244" text-anchor="middle">Welcome</text>
+          </g>
+          <line class="env-fold" x1="160" y1="282" x2="220" y2="240"/>
+          <line class="env-fold" x1="280" y1="282" x2="220" y2="240"/>
+          <g class="env-flap">
+            <path class="env-flap-shape" d="M 160 192 L 280 192 L 220 240 Z"/>
+            <g class="env-seal">
+              <circle class="seal-shadow" cx="221" cy="227" r="13"/>
+              <circle class="seal-body" cx="220" cy="226" r="12"/>
+              <circle class="seal-ring" cx="220" cy="226" r="12" fill="none"/>
+              <text class="seal-text" x="220" y="231" text-anchor="middle">DA</text>
+            </g>
+          </g>
         </g>
       </svg>
     </div>
