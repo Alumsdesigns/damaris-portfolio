@@ -124,6 +124,9 @@ nav[role="navigation"]::before{
 @media(prefers-reduced-motion:no-preference){
   nav[role="navigation"]::before{animation:goByShimmer 7s ease-in-out 1s infinite}
 }
+@media(prefers-reduced-motion:no-preference){
+  :root:not([data-theme="light"]) nav[role="navigation"]::before{animation-duration:12s}
+}
 nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);transition:transform 0.9s cubic-bezier(0.4,0,0.2,1)}
 [data-theme="light"] nav[role="navigation"]{
   background:linear-gradient(135deg,#ffffff 0%,#ece4d6 100%);
@@ -294,9 +297,10 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
   fill:#0d0d0d;stroke:rgba(255,253,247,0.7);stroke-width:1.4;
 }
 
-/* Sunshine bloom around the butterfly disc — brightest near the text ring */
+/* Sunshine bloom around the butterfly disc — light mode only */
 .butterfly-halo{filter:blur(4px);mix-blend-mode:screen}
 [data-theme="light"] .butterfly-halo{mix-blend-mode:multiply;opacity:0.85}
+[data-theme="dark"] .butterfly-halo{display:none}
 .hero-monogram-text{
   fill:#ffffff;font-family:'Fraunces',Georgia,serif;
   font-size:92px;font-weight:600;letter-spacing:-2px;
@@ -318,12 +322,7 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
   fill:#FBF9F6;stroke:rgba(6,35,32,0.55);stroke-width:1.4;
 }
 [data-theme="dark"] .hero-process-text{
-  fill:#000000;stroke:none;
-  filter:
-    drop-shadow(0 0 5px rgba(255,235,170,0.85))
-    drop-shadow(0 0 11px rgba(255,200,100,0.5))
-    drop-shadow(0 1.5px 0.6px rgba(0,0,0,0.7))
-    drop-shadow(0 3px 4px rgba(0,0,0,0.45));
+  fill:#FBF9F6;stroke:rgba(6,35,32,0.65);stroke-width:1.2;
 }
 [data-theme="dark"] .hero-tagline-text{
   fill:#FBF9F6;stroke:rgba(6,35,32,0.55);stroke-width:0.8;
@@ -673,41 +672,43 @@ h1.hero-name span{color:var(--teal)}
 
 /* ── BUTTONS, high contrast in both modes ── */
 .btn-primary-lg{padding:14px 32px !important;font-size:18px !important}
+/* Primary CTA — brand gold + burgundy text (5.0:1, AA). Hover inverts: cream + dark gold. */
 .btn-primary{
   background:#C5A021;
-  color:#fff;
+  color:#4a1018;
   padding:12px 26px;border-radius:50px;
-  text-decoration:none;font-size:17px;font-weight:500;
+  text-decoration:none;font-size:17px;font-weight:600;
   border:2px solid #C5A021;
   transition:all var(--tr);display:inline-block;
   font-family:var(--sans);cursor:pointer;
   min-height:44px;
 }
 .btn-primary:hover,.btn-primary:focus{
-  background:#9c7e16;border-color:#9c7e16;
+  background:#FBF9F6;color:#6d4f0e;border-color:#6d4f0e;
   transform:translateY(-2px);box-shadow:0 8px 24px rgba(138,94,44,0.35);
-  outline:2px solid #9c7e16;outline-offset:3px;
+  outline:2px solid #6d4f0e;outline-offset:3px;
 }
+/* Ghost CTA — outlined gold. Light: burgundy text; dark: cream text. Hover inverts to filled. */
 .btn-ghost{
   background:transparent;
-  color:#4a1018;
+  color:#FBF9F6;
   padding:12px 26px;border-radius:50px;
-  text-decoration:none;font-size:17px;font-weight:500;
-  border:2px solid #4a1018;
+  text-decoration:none;font-size:17px;font-weight:600;
+  border:2px solid #C5A021;
   transition:all var(--tr);display:inline-block;
   font-family:var(--sans);cursor:pointer;
   min-height:44px;
 }
 [data-theme="light"] .btn-ghost{
-  color:#4a1018;border-color:#4a1018;
+  color:#4a1018;border-color:#C5A021;
 }
 .btn-ghost:hover,.btn-ghost:focus{
-  background:#4a1018;color:#f5efe2;
+  background:#C5A021;color:#4a1018;border-color:#C5A021;
   transform:translateY(-2px);
-  outline:2px solid #4a1018;outline-offset:3px;
+  outline:2px solid #6d4f0e;outline-offset:3px;
 }
 [data-theme="light"] .btn-ghost:hover{
-  background:#4a1018;color:#f5efe2;border-color:#4a1018;
+  background:#C5A021;color:#4a1018;border-color:#C5A021;
 }
 
 /* legacy .hero-stats block removed; styles defined in the layout grid above */
@@ -849,17 +850,25 @@ h2.section-title{
 .learning-badge{
   display:inline-flex;align-items:center;gap:8px;
   background:#fff;border:1.5px solid #C5A021;
-  color:#9c7e16;font-size:15px;padding:7px 14px;border-radius:20px;
+  color:#5a4408;font-size:15px;padding:7px 14px;border-radius:20px;
   margin-top:16px;font-weight:500;
+}
+[data-theme="dark"] .learning-badge{
+  background:rgba(255,235,170,0.16);border-color:rgba(255,224,128,0.75);
+  color:#fff3b8;
 }
 .learning-bolt{
   color:#0d0d0d;
   font-family:"Helvetica Neue",Arial,sans-serif;
   font-variant-emoji:text;
   -webkit-font-feature-settings:"liga" off;
-  font-size:20px;font-weight:700;line-height:1;
+  font-size:26px;font-weight:700;line-height:1;
   display:inline-block;transform:translateY(1px);
   text-shadow:0 0 1px rgba(13,8,8,0.35);
+}
+[data-theme="dark"] .learning-bolt{
+  color:#ffd633;
+  text-shadow:0 0 6px rgba(255,214,51,0.55),0 0 1px rgba(0,0,0,0.5);
 }
 
 /* ── UX PRINCIPLES ── */
@@ -984,9 +993,13 @@ h3.card-title{
 }
 .card-preview::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,0.18) 50%,transparent 60%);
+  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,0.22) 50%,transparent 60%);
   transform:translateX(-110%);transition:transform 0.55s ease;
   pointer-events:none;
+}
+@media(prefers-reduced-motion:no-preference){
+  .card-preview::before{animation:goByShimmer 6.5s ease-in-out 0.8s infinite}
+  .card-preview:hover::before,.card-preview:focus-visible::before{animation:none}
 }
 .card-preview:hover,.card-preview:focus-visible{
   border-color:var(--teal);border-style:solid;
@@ -1045,8 +1058,8 @@ h3.card-title{
 }
 button.link-btn{background-color:transparent}
 button.link-live{background-color:#C5A021}
-.link-live{background:#C5A021;color:#fff;border-color:#C5A021}
-.link-live:hover,.link-live:focus{background:#9c7e16;border-color:#9c7e16;outline:2px solid #9c7e16;outline-offset:2px}
+.link-live{background:#C5A021;color:#4a1018;border-color:#C5A021;font-weight:600}
+.link-live:hover,.link-live:focus{background:#FBF9F6;color:#6d4f0e;border-color:#6d4f0e;outline:2px solid #6d4f0e;outline-offset:2px}
 .link-gh{
   background:transparent;color:#4a1018;
   border-color:rgba(109,27,40,0.42);
@@ -1638,23 +1651,34 @@ h3.ux-card-title{font-family:var(--serif);font-size:17px;font-weight:500;color:v
 .skill-block-learning .skill-block-title{color:#a04e0a}
 [data-theme="light"] .skill-block-learning{background:#fdf6ec!important}
 [data-theme="light"] .skill-block-learning .skill-block-title{color:#a04e0a}
+/* Currently Learning tags — colourblind-aware: warm yellow on dark warm-brown
+   (high luminance contrast that survives protanopia/deuteranopia/tritanopia) */
 .sk-learning{
   color:#a04e0a!important;
   background:#fdf6ec!important;
   border:1px solid rgba(237,124,28,0.55)!important;
-  font-weight:500;
+  font-weight:600;
 }
 [data-theme="light"] .sk-learning{
-  color:#a04e0a!important;
+  color:#7a3a06!important;
   background:#fdf6ec!important;
-  border-color:rgba(160,78,10,0.42)!important;
+  border-color:rgba(122,58,6,0.55)!important;
+}
+[data-theme="dark"] .sk-learning{
+  color:#ffd966!important;
+  background:#2a1810!important;
+  border:1px solid #ffae3a!important;
+  font-weight:600;
 }
 .sk-learning:hover{
   background:#ed7c1c!important;color:#fff!important;
   border-color:#ed7c1c!important;
 }
 [data-theme="light"] .sk-learning:hover{
-  background:#a04e0a!important;color:#fff!important;border-color:#a04e0a!important;
+  background:#7a3a06!important;color:#fff!important;border-color:#7a3a06!important;
+}
+[data-theme="dark"] .sk-learning:hover{
+  background:#ffae3a!important;color:#2a1810!important;border-color:#ffae3a!important;
 }
 
 /* ── CONTACT ── */
@@ -1693,7 +1717,7 @@ footer{
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
 }
 .footer-name{font-family:var(--serif);color:var(--teal);font-size:16px}
-.footer-note{font-size:13px;color:var(--text-dim)}
+.footer-note{font-size:13px;color:var(--text-muted)}
 
 /* ── BACK TO TOP ── */
 .btt{
@@ -1872,6 +1896,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offse
   font-size:12px;text-transform:uppercase;letter-spacing:0.2em;
   color:var(--text-dim);font-weight:500;margin-bottom:20px;
 }
+[data-theme="dark"] .go-by-eyebrow{color:#d4ede9}
+[data-theme="dark"] .footer-note{color:#d4ede9}
 .go-by-badges{
   display:inline-flex;flex-wrap:wrap;gap:10px;justify-content:center;
 }
@@ -1922,6 +1948,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offse
   .go-by-badge:nth-child(5)::before{animation:goByShimmer 6s ease-in-out 4.1s infinite}
   .go-by-badge:nth-child(6)::before{animation:goByShimmer 6s ease-in-out 5s infinite}
   .go-by-badge:hover::before,.go-by-badge:focus-within::before{animation:none;transform:translateX(110%)}
+  :root:not([data-theme="light"]) .go-by-badge::before{animation-duration:10s}
 }
 
 /* Reduced motion, respect user preference */
@@ -2045,3 +2072,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offse
   .brand-modal{padding:0}
   .brand-modal-panel{border-radius:0;max-height:100vh;height:100vh}
 }
+
+/* ── Dark-mode contrast fix: teal-filled CTAs were #3eb8a8 on #fff text (2.8:1).
+   Darken to #1a6b5e for 6.2:1 (WCAG AA). One block covers every button using
+   the var(--teal) + #fff pattern. ── */
+[data-theme="dark"] :is(
+  .skip-link,
+  .btn-primary,
+  .btn-primary-lg,
+  .hero-avail-pill,
+  .hero-status,
+  .hero-status-cta,
+  .role-pill,
+  .filter-btn.active,
+  .filter-btn[aria-pressed="true"],
+  .filter-btn[aria-selected="true"],
+  .mld-modal-cta,
+  .mld-modal-cta-ghost:hover,
+  .mld-modal-cta-ghost:focus-visible,
+  .mld-modal-arrow:hover,
+  .mld-modal-arrow:focus-visible,
+  .mld-carousel-nav:hover,
+  .mld-carousel-nav:focus-visible,
+  .go-by-badge-icon,
+  .btt,
+  .card-preview:hover .card-preview-icon,
+  .card-preview:focus-visible .card-preview-icon,
+  .btn-ghost:hover,
+  .btn-ghost:focus,
+  .btn-ghost:focus-visible
+){
+  background:#1a6b5e;
+  border-color:#1a6b5e;
+  color:#FBF9F6;
+}
+
