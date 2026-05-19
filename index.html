@@ -95,6 +95,12 @@
             <stop offset="80%" stop-color="rgba(255,180,90,0.25)"/>
             <stop offset="100%" stop-color="rgba(255,236,94,0)"/>
           </radialGradient>
+          <radialGradient id="waxMelted" cx="38%" cy="32%" r="70%">
+            <stop offset="0%" stop-color="#e84545"/>
+            <stop offset="35%" stop-color="#b21a1a"/>
+            <stop offset="70%" stop-color="#7d0808"/>
+            <stop offset="100%" stop-color="#3d0000"/>
+          </radialGradient>
           <radialGradient id="brandGlowLight" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="rgba(197,160,33,0.22)"/>
             <stop offset="55%" stop-color="rgba(226,200,124,0.14)"/>
@@ -110,26 +116,34 @@
           <text class="hero-process-text" textLength="1108" lengthAdjust="spacingAndGlyphs"><textPath href="#processArc" startOffset="0">✓ RESEARCH . ✓ DESIGN . ✓ TEST . ✓ DEVELOP . ✓ TEST . ✓ SHIP . ✓ TEST . ✓ SMILE</textPath></text>
         </g>
         <g class="hero-brand-disk">
-          <circle cx="220" cy="220" r="96" fill="url(#brandGradient)" class="hero-brand-base"/>
-          <circle cx="220" cy="220" r="64" fill="none" class="hero-brand-inner"/>
-          <circle cx="220" cy="220" r="96" fill="url(#brandShimmer)" class="hero-brand-shimmer"/>
+          <circle cx="220" cy="220" r="118" fill="url(#brandGradient)" class="hero-brand-base"/>
+          <circle cx="220" cy="220" r="78" fill="none" class="hero-brand-inner"/>
+          <circle cx="220" cy="220" r="118" fill="url(#brandShimmer)" class="hero-brand-shimmer"/>
         </g>
-        <g class="hero-envelope" role="img" aria-label="Wax-sealed envelope with DA monogram, opens to reveal a welcome">
-          <rect class="env-back" x="160" y="192" width="120" height="90" rx="4"/>
+        <g class="hero-envelope" role="img" aria-label="Sealed envelope with red wax DA stamp, hover to open">
+          <rect class="env-back" x="145" y="162" width="150" height="115" rx="3"/>
           <g class="env-letter">
-            <rect class="env-paper" x="170" y="202" width="100" height="70" rx="2"/>
-            <text class="env-welcome" x="220" y="244" text-anchor="middle">Welcome</text>
+            <rect class="env-paper" x="145" y="162" width="150" height="115" rx="2"/>
+            <text class="env-welcome" x="220" y="226" text-anchor="middle">Welcome</text>
           </g>
-          <line class="env-fold" x1="160" y1="282" x2="220" y2="240"/>
-          <line class="env-fold" x1="280" y1="282" x2="220" y2="240"/>
+          <line class="env-fold" x1="145" y1="277" x2="220" y2="220"/>
+          <line class="env-fold" x1="295" y1="277" x2="220" y2="220"/>
           <g class="env-flap">
-            <path class="env-flap-shape" d="M 160 192 L 280 192 L 220 240 Z"/>
-            <g class="env-seal">
-              <circle class="seal-shadow" cx="221" cy="227" r="13"/>
-              <circle class="seal-body" cx="220" cy="226" r="12"/>
-              <circle class="seal-ring" cx="220" cy="226" r="12" fill="none"/>
-              <text class="seal-text" x="220" y="231" text-anchor="middle">DA</text>
-            </g>
+            <path class="env-flap-shape" d="M 145 162 L 295 162 L 220 220 Z"/>
+          </g>
+          <g class="env-seal">
+            <path class="seal-blob" d="M 220 192
+              C 240 191, 257 200, 260 214
+              C 268 220, 266 236, 256 244
+              C 260 256, 248 266, 236 263
+              C 234 273, 220 274, 213 270
+              C 200 274, 188 266, 187 254
+              C 175 250, 175 232, 184 226
+              C 184 208, 202 192, 220 192 Z"/>
+            <circle class="seal-inner" cx="220" cy="227" r="15" fill="none"/>
+            <text class="seal-text" x="220" y="233" text-anchor="middle">DA</text>
+            <ellipse class="seal-highlight" cx="208" cy="208" rx="7" ry="3.5"/>
+            <path class="seal-drip" d="M 232 268 Q 235 277 230 281 Q 226 277 228 268 Z"/>
           </g>
         </g>
       </svg>
@@ -908,8 +922,9 @@
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">◇</span>UI</span>
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">⌖</span>Research</span>
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">✎</span>Design</span>
-    <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">⊞</span>Software Tester</span>
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">⌬</span>Develop</span>
+    <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">⊞</span>Software / QA Tester</span>
+    <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">✓</span>UAT</span>
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">▲</span>Ship</span>
   </div>
 </section>
