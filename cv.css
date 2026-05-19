@@ -57,10 +57,10 @@ html,body{
   border-color:var(--teal);color:var(--teal);outline:none;
 }
 .cv-print{
-  font-size:14px;color:var(--teal);background:transparent;border:1px solid var(--teal);
-  padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;
+  font-size:14px;color:var(--teal-mid);background:transparent;border:1.5px solid var(--teal-mid);
+  padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-weight:600;
 }
-.cv-print:hover,.cv-print:focus-visible{background:var(--teal);color:#fff;outline:none}
+.cv-print:hover,.cv-print:focus-visible{background:var(--teal-mid);color:#FBF9F6;border-color:var(--teal-mid);outline:none}
 
 .cv-page{
   max-width:1080px;margin:24px auto;padding:0;
@@ -81,7 +81,7 @@ html,body{
   color:var(--teal-dark);font-weight:500;
 }
 .cv-role{
-  font-size:14px;color:var(--teal);font-weight:500;
+  font-size:14px;color:var(--teal-mid);font-weight:600;
   text-transform:uppercase;letter-spacing:0.08em;margin-top:6px;
 }
 .cv-contact{display:flex;flex-direction:column;gap:8px;font-size:14px}
@@ -114,8 +114,8 @@ html,body{
 .cv-skill-block{margin-bottom:14px}
 .cv-skill-block:last-child{margin-bottom:0}
 .cv-skill-label{
-  font-size:11px;color:var(--teal);text-transform:uppercase;
-  letter-spacing:0.08em;font-weight:500;margin-bottom:5px;
+  font-size:11px;color:var(--teal-mid);text-transform:uppercase;
+  letter-spacing:0.08em;font-weight:700;margin-bottom:5px;
 }
 
 .cv-main{padding:36px 36px 40px;display:flex;flex-direction:column;gap:26px}
