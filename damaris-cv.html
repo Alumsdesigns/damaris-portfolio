@@ -8,14 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="cv.css">
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
 <div class="cv-back">
-  <a href="cvs.html" aria-label="Back to CVs index">← All CVs</a>
+  <a href="https://alumsdesigns.github.io/damaris-portfolio/cvs.html" aria-label="Back to CVs index">← All CVs</a>
   <div class="cv-back-actions">
     <button class="cv-theme-btn" type="button" id="cvThemeBtn" aria-label="Toggle light and dark theme"><span aria-hidden="true">◐</span> Theme</button>
-    <button class="cv-print" type="button" onclick="window.print()" aria-label="Print or save as PDF">Print / Save PDF</button>
+    <button class="cv-print" type="button" onclick="window.print()" aria-label="Open print dialog">Print 🖨</button>
+    <button class="cv-print" type="button" id="cvPdfBtn" aria-label="Download CV as PDF">Download PDF ↓</button>
+    <button class="cv-print" type="button" id="cvWordBtn" aria-label="Download CV as Word document">Download Word ↓</button>
+    <button class="cv-print" type="button" id="cvDocsBtn" aria-label="Open CV in Google Docs (downloads file and opens Google Docs to upload)">Open in Google Docs ↗</button>
   </div>
 </div>
 
@@ -32,7 +36,7 @@
       <div class="cv-contact">
         <a href="mailto:alum.damaris@gmail.com">📧 alum.damaris@gmail.com</a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
-        <a href="index.html">🌐 UX/UI Portfolio</a>
+        <a href="https://alumsdesigns.github.io/damaris-portfolio/">🌐 UX/UI Portfolio</a>
         <a href="https://github.com/Alumsdesigns" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
       </div>
     </div>
@@ -195,21 +199,18 @@
       <h2 class="cv-section-h">Education &amp; training</h2>
 
       <article class="cv-job cv-edu">
-        <div class="cv-job-title">Diploma in Full Stack Software Development (AI Predictive Analysis)</div>
-        <div class="cv-job-meta"><span>Saint Mary's University, Scotland (Code Institute)</span><span>March 2025 – April 2026</span></div>
-        <p class="cv-job-intro">Five live deployed projects: UX research · stakeholder interviews · user stories · iterative usability testing · feedback synthesis · task breakdown · agile sprint delivery · research to launch. Covers Python · Django · JavaScript · ML · Predictive Analytics.</p>
-      </article>
-
-      <article class="cv-job cv-edu">
-        <div class="cv-job-title">Cyberdogo Bootcamp — Cyber Security &amp; Information Governance</div>
-        <div class="cv-job-meta"><span>London</span><span>March – October 2024</span></div>
-        <p class="cv-job-intro">Three practical security projects covering PII handling, cloud security monitoring, CI/CD pipeline security and data privacy. Informs a research practice grounded in responsible, privacy-aware and GDPR-compliant design — directly applicable to ethical research, data handling and secure participant information management.</p>
-      </article>
-
-      <article class="cv-job cv-edu">
         <div class="cv-job-title">Google UX Design Professional Certificate</div>
-        <div class="cv-job-meta"><span>7 Certificates · Coursera · London</span><span>January 2023 – February 2024</span></div>
-        <p class="cv-job-intro">User research · usability testing · affinity mapping · wireframing · prototyping · Figma · Adobe XD · accessibility. Two full case studies: Alumnus Steakhouse App and La Mode Fashion App, research through to iterated prototype.</p>
+        <div class="cv-job-meta"><span>7 Certificates · Coursera · 2024</span></div>
+      </article>
+
+      <article class="cv-job cv-edu">
+        <div class="cv-job-title">Diploma in Full Stack Software Development (AI Predictive Analysis)</div>
+        <div class="cv-job-meta"><span>Saint Mary's University, Scotland (Code Institute) · 2026</span></div>
+      </article>
+
+      <article class="cv-job cv-edu">
+        <div class="cv-job-title">Cyberdogo — Cyber Security &amp; Information Governance</div>
+        <div class="cv-job-meta"><span>London · 2024</span></div>
       </article>
     </div>
 
@@ -265,6 +266,139 @@
       setTimeout(() => window.print(), 800);
     });
   }
+
+  // Filename helper used by both PDF and Word downloads
+  function cvFilenameBase(){
+    const name = (document.querySelector('.cv-name')?.textContent || 'Damaris Alum').replace(/\s+/g,' ').trim();
+    const role = (document.querySelector('.cv-role')?.textContent || 'CV').trim();
+    return (name + '-' + role).replace(/[^a-z0-9]+/gi,'-').replace(/^-+|-+$/g,'');
+  }
+
+  // Visible toast (used for status + errors so the user always sees feedback)
+  function showCvToast(msg, isError){
+    const t = document.createElement('div');
+    t.textContent = msg;
+    t.setAttribute('role','status');
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:' + (isError ? '#7a1a1a' : '#0a3630') + ';color:#fff;padding:12px 18px;border-radius:24px;font-size:14px;font-family:DM Sans,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,0.25);z-index:9999;max-width:92vw;text-align:center;opacity:0;transition:opacity .25s';
+    document.body.appendChild(t);
+    requestAnimationFrame(() => { t.style.opacity = '1'; });
+    setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, isError ? 6000 : 5000);
+  }
+
+  // Wait for html2pdf to be loaded (up to ~6s) then run the callback
+  function withHtml2Pdf(cb){
+    if(window.html2pdf){ cb(); return; }
+    showCvToast('Loading PDF engine…');
+    let tries = 0;
+    const iv = setInterval(() => {
+      tries++;
+      if(window.html2pdf){ clearInterval(iv); cb(); }
+      else if(tries > 30){
+        clearInterval(iv);
+        showCvToast('PDF engine couldn\'t load — opening print dialog instead. Choose "Save as PDF" as the destination.', true);
+        setTimeout(() => window.print(), 1200);
+      }
+    }, 200);
+  }
+
+  // Direct PDF download via html2pdf.js — no print dialog
+  function downloadAsPDF(){
+    const element = document.querySelector('main.cv-page');
+    if(!element){ showCvToast('Could not find CV content to export.', true); return; }
+    withHtml2Pdf(() => {
+      try {
+        const bg = getComputedStyle(document.body).backgroundColor || '#f5efe2';
+        showCvToast('Generating PDF — this may take a few seconds…');
+        window.html2pdf().set({
+          margin: 0,
+          filename: cvFilenameBase() + '.pdf',
+          image: {type:'jpeg', quality:0.98},
+          html2canvas: {scale:2, useCORS:true, backgroundColor:bg, windowWidth:1100},
+          jsPDF: {unit:'mm', format:'a4', orientation:'portrait'},
+          pagebreak: {mode:['css','legacy']}
+        }).from(element).save().catch(err => {
+          console.error('PDF error', err);
+          showCvToast('PDF failed: ' + (err && err.message || 'unknown error'), true);
+        });
+      } catch(err) {
+        console.error('PDF error', err);
+        showCvToast('PDF failed: ' + (err && err.message || 'unknown error'), true);
+      }
+    });
+  }
+  const pdfBtn = document.getElementById('cvPdfBtn');
+  if(pdfBtn) pdfBtn.addEventListener('click', downloadAsPDF);
+
+  // Auto-download PDF when ?pdf=1
+  if(params.get('pdf') === '1'){
+    window.addEventListener('load', () => {
+      setTimeout(downloadAsPDF, 1000);
+    });
+  }
+
+  // Word download — builds a Word-friendly HTML blob with .doc extension
+  function downloadAsWord(){
+    try {
+    const name = (document.querySelector('.cv-name')?.textContent || 'Damaris Alum').replace(/\s+/g,' ').trim();
+    const role = (document.querySelector('.cv-role')?.textContent || 'CV').trim();
+    const filename = cvFilenameBase() + '.doc';
+    const main = document.querySelector('main.cv-page');
+    if(!main){ showCvToast('Could not find CV content to export.', true); return; }
+    const content = main.cloneNode(true);
+    const styles = `
+      body{font-family:Calibri,Arial,sans-serif;color:#062320;font-size:11pt;line-height:1.5}
+      h1,h2,h3{font-family:Georgia,serif;color:#0a3630}
+      .cv-name{font-size:24pt;font-weight:bold;color:#0a3630;line-height:1.1}
+      .cv-role{font-size:14pt;color:#2a9d8f;margin-bottom:14pt}
+      .cv-side-h{font-size:11pt;font-weight:bold;color:#2a9d8f;text-transform:uppercase;letter-spacing:0.05em;margin-top:14pt;margin-bottom:6pt;border-bottom:1px solid #2a9d8f;padding-bottom:3pt}
+      .cv-section-h{font-size:14pt;font-weight:bold;color:#0a3630;border-bottom:2px solid #2a9d8f;padding-bottom:4pt;margin-top:16pt;margin-bottom:8pt}
+      .cv-job-title{font-size:12pt;font-weight:bold;color:#0a3630;margin-top:10pt}
+      .cv-job-meta{font-size:10pt;color:#2a6b5e;font-style:italic;margin-bottom:6pt}
+      .cv-job-meta span{margin-right:12pt}
+      .cv-summary,.cv-job-intro{margin-bottom:8pt}
+      .cv-tag{display:inline-block;background:#eaf3f0;color:#0a3630;padding:2pt 6pt;margin:2pt;border:1pt solid #d4ede9;font-size:9pt}
+      .cv-skill-label{font-weight:bold;color:#0a3630;margin-top:8pt;margin-bottom:3pt}
+      .cv-badge{margin-bottom:6pt}
+      .cv-badge-name{font-weight:bold;display:block}
+      .cv-badge-meta{font-size:9pt;color:#2a6b5e;display:block}
+      .cv-contact a{display:block;color:#0a3630;text-decoration:none;font-size:10pt;margin-bottom:2pt}
+      ul{margin-left:18pt;margin-bottom:8pt}
+      li{margin-bottom:3pt}
+      aside,section{display:block;margin-bottom:14pt}
+    `;
+    const html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'
+      + '<head><meta charset="utf-8"><title>' + name + ' — ' + role + '</title><style>' + styles + '</style></head>'
+      + '<body>' + content.innerHTML + '</body></html>';
+    const blob = new Blob(['﻿', html], {type:'application/msword'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showCvToast('Word file downloaded: ' + filename);
+    } catch(err){
+      console.error('Word error', err);
+      showCvToast('Word download failed: ' + (err && err.message || 'unknown error'), true);
+    }
+  }
+  const wordBtn = document.getElementById('cvWordBtn');
+  if(wordBtn) wordBtn.addEventListener('click', downloadAsWord);
+
+  // Auto-download Word when ?word=1
+  if(params.get('word') === '1'){
+    window.addEventListener('load', () => {
+      setTimeout(downloadAsWord, 800);
+    });
+  }
+
+  // Open in Google Docs — downloads .doc, opens Docs in new tab
+  function openInGoogleDocs(){
+    downloadAsWord();
+    window.open('https://docs.google.com/document/u/0/', '_blank', 'noopener,noreferrer');
+    setTimeout(() => showCvToast('In Google Docs choose File → Open → Upload, or drag the file in.'), 700);
+  }
+  const docsBtn = document.getElementById('cvDocsBtn');
+  if(docsBtn) docsBtn.addEventListener('click', openInGoogleDocs);
 
   // Theme toggle — persist choice across CV views
   const root = document.documentElement;

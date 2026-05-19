@@ -54,7 +54,7 @@
       <div class="hero-btns">
         <a href="#ux-work" class="btn-primary btn-primary-lg">View Work ↓</a>
         <a href="https://www.linkedin.com/in/damaris-alum/" target="_blank" rel="noopener noreferrer" class="btn-ghost" aria-label="Book intro chat via LinkedIn, opens in new tab">Book intro chat ↗</a>
-        <a href="cvs.html" class="btn-primary">View or Download CV ↗</a>
+        <a href="https://alumsdesigns.github.io/damaris-portfolio/cvs.html" class="btn-primary">View or Download CV ↗</a>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
@@ -894,6 +894,8 @@
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">✎</span>Design</span>
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">✓</span>QA</span>
     <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">⊞</span>Software Tester</span>
+    <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">⌬</span>Develop</span>
+    <span class="go-by-badge"><span class="go-by-badge-icon" aria-hidden="true">▲</span>Ship</span>
   </div>
 </section>
 
@@ -1639,7 +1641,7 @@ const mldHeroStage=document.getElementById('mldHeroStage');
 const mldHeroCounter=document.getElementById('mldHeroCounter');
 let mldHeroIdx=0;
 
-function mldHeroShow(nOrIdx,byNumber=true){
+function mldHeroShow(nOrIdx,byNumber=true,scrollThumb=true){
   const i=byNumber?mldSlides.findIndex(s=>s.n===nOrIdx):nOrIdx;
   if(i<0||i>=mldSlides.length)return;
   mldHeroIdx=i;
@@ -1657,9 +1659,19 @@ function mldHeroShow(nOrIdx,byNumber=true){
   document.querySelectorAll('.mld-slide').forEach(btn=>{
     btn.setAttribute('aria-current',parseInt(btn.dataset.slide,10)===s.n?'true':'false');
   });
-  // scroll active thumb into view
-  const activeThumb=document.querySelector(`.mld-slide[data-slide="${s.n}"]`);
-  activeThumb?.scrollIntoView({behavior:'smooth',inline:'nearest',block:'nearest'});
+  // scroll active thumb into view (within the carousel track only — never scroll the page)
+  if(scrollThumb){
+    const activeThumb=document.querySelector(`.mld-slide[data-slide="${s.n}"]`);
+    const track=document.getElementById('mldTrack');
+    if(activeThumb && track){
+      const thumbLeft=activeThumb.offsetLeft;
+      const thumbRight=thumbLeft+activeThumb.offsetWidth;
+      const viewLeft=track.scrollLeft;
+      const viewRight=viewLeft+track.clientWidth;
+      if(thumbLeft<viewLeft) track.scrollTo({left:thumbLeft-8,behavior:'smooth'});
+      else if(thumbRight>viewRight) track.scrollTo({left:thumbRight-track.clientWidth+8,behavior:'smooth'});
+    }
+  }
 }
 function mldHeroStep(d){
   mldHeroShow((mldHeroIdx+d+mldSlides.length)%mldSlides.length,false);
@@ -1681,7 +1693,7 @@ mldHeroStage?.addEventListener('touchend',e=>{
   mldTouchX=null;
 },{passive:true});
 // Initialise hero with slide 1
-mldHeroShow(1);
+mldHeroShow(1,true,false);
 
 // Brand Guide modals (one handler, many modals — keyed by data-brand-open="<name>")
 (function(){

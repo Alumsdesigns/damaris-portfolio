@@ -235,6 +235,22 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 [data-theme="light"] .hero-monogram{
   filter:drop-shadow(0 22px 52px rgba(197,160,33,0.28));
 }
+
+/* Dark-mode brand monogram: green/teal brand gradient instead of red */
+[data-theme="dark"] #brandGradient stop:nth-of-type(1){stop-color:#3eb8a8}
+[data-theme="dark"] #brandGradient stop:nth-of-type(2){stop-color:#1a6b5e}
+[data-theme="dark"] #brandGradient stop:nth-of-type(3){stop-color:#062320}
+[data-theme="dark"] #brandGlow stop:nth-of-type(1){stop-color:rgba(124,246,194,0.55)}
+[data-theme="dark"] #brandGlow stop:nth-of-type(2){stop-color:rgba(62,184,168,0.6)}
+[data-theme="dark"] #brandGlow stop:nth-of-type(3){stop-color:rgba(42,157,143,0.4)}
+[data-theme="dark"] #brandGlow stop:nth-of-type(4){stop-color:rgba(10,54,48,0.28)}
+[data-theme="dark"] #brandGlow stop:nth-of-type(5){stop-color:rgba(5,26,22,0)}
+[data-theme="dark"] #brandGlowOuter stop:nth-of-type(1){stop-color:rgba(62,184,168,0)}
+[data-theme="dark"] #brandGlowOuter stop:nth-of-type(2){stop-color:rgba(124,246,194,0.22)}
+[data-theme="dark"] #brandGlowOuter stop:nth-of-type(3){stop-color:rgba(124,246,194,0)}
+[data-theme="dark"] .hero-monogram{
+  filter:drop-shadow(0 22px 52px rgba(62,184,168,0.32));
+}
 .hero-stats{
   grid-column:1 / -1;margin-top:20px;
   display:flex;gap:18px;flex-wrap:nowrap;
@@ -272,7 +288,7 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .hero-process-text{
   fill:#0d0d0d;font-family:'DM Sans',sans-serif;
   font-size:12.5px;letter-spacing:7.5px;font-weight:700;
-  paint-order:stroke;stroke:rgba(255,250,240,0.55);stroke-width:1.4;stroke-linejoin:round;
+  paint-order:stroke;stroke:none;stroke-linejoin:round;
 }
 [data-theme="light"] .hero-process-text{
   fill:#0d0d0d;stroke:rgba(255,253,247,0.7);stroke-width:1.4;
@@ -292,6 +308,16 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 }
 [data-theme="light"] .hero-tagline-text{
   fill:#0d0d0d;stroke:rgba(255,253,247,0.7);stroke-width:0.8;
+}
+/* Dark-mode logo text — off-white for readability against the green disc and dark background */
+[data-theme="dark"] .hero-monogram-text{
+  fill:#FBF9F6;stroke:rgba(6,35,32,0.55);stroke-width:1.4;
+}
+[data-theme="dark"] .hero-process-text{
+  fill:#FBF9F6;stroke:rgba(6,35,32,0.55);stroke-width:0.8;
+}
+[data-theme="dark"] .hero-tagline-text{
+  fill:#FBF9F6;stroke:rgba(6,35,32,0.55);stroke-width:0.8;
 }
 @keyframes daShimmer{
   0%,72%,100%{fill:#0d0d0d}
