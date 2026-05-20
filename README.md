@@ -97,7 +97,7 @@ A filter bar (`All / QA Tester / ML & Data / Full Stack / Front End / CLI & Pyth
 - **MyLocalDressmaker** (full-width featured case study with inline hero carousel, eight-slide modal, moodboard flip tiles, typography spec and Ghana-inspired palette)
 
 ### Brand guide modal
-Triggered from the portfolio card's `Brand guide` button. A five-section luxe burgundy/gold dialog covers **Essence**, **Palette** ("A wardrobe, not a palette"), **Typography**, **Voice & Tone** and an eight-beat **Process Signatures** cadence. ESC closes, click-outside closes, focus is trapped on the close button and restored to the trigger on dismissal.
+Triggered from the portfolio card's `Brand guide` button. A six-section luxe burgundy/gold dialog covers **Essence**, **Palette** ("A wardrobe, not a palette" — seven swatches including the theme-aware Label Accent token), **Typography**, **Interactive elements** (light + dark mode CTA pairs with contrast ratios), **Voice & Tone** and an eight-beat **Process Signatures** cadence. ESC closes, click-outside closes, focus is trapped on the close button and restored to the trigger on dismissal.
 
 ### MyLocalDressmaker slide modal + flip moodboard
 The featured case study has an inline arrow-controlled hero carousel showing eight slides (mixed images and walkthrough videos), a thumbnail strip beneath, and a `Read the full story` CTA that opens a full-width slide modal with rich narrative copy per slide. Below the carousel, a nine-tile moodboard has flip-to-back cards revealing discovery notes, and a typography section documents Asul + Roboto with the project's brand colour swatches.
@@ -146,8 +146,10 @@ Hand-mixed signature palette built around heritage, craft and trust:
 - **Burgundy `#6D1B28`** — heritage anchor, used for accents, dots, dividers and modal section eyebrows
 - **Gold `#C5A021`** — signature highlight, used sparingly for the `Currently learning` badge, italic display text and the SMILE process pill
 - **Teal `#2A9D8F`** — default interactive trust colour, links and the project-card default accent
+- **Deep Teal `#1A6B5E`** — dark-mode CTA fill, paired with cream text for 6.2:1 contrast (WCAG AA)
 - **Cream `#FBF9F6`** — canvas/background tint
 - **Charcoal `#0d0d0d`** — typographic anchor, body text and dark-mode surfaces
+- **Label Accent** (semantic token `--label-accent`) — theme-aware accent carrying small uppercase eyebrows (`.skill-cat`, `.skill-block-title`, `.role-word`, `.cv-role`, `.cv-skill-label`). Resolves to burgundy `#6D1B28` in light mode and mint `#5fc7b8` in dark mode, both ≥6:1 against their surfaces.
 
 Each project card additionally carries a unique `--card-accent` CSS custom property (set inline per card) so hover/focus borders inherit the card's own header gradient — for example QuipOrder uses `#2a4a7a`, Quizverse uses `#3a6e6e`, the portfolio card uses the brand `#bc0000`.
 
@@ -207,7 +209,7 @@ The site's rendering and functionality were verified across the following browse
 ### Accessibility Testing
 - **Keyboard-only navigation pass** — every interactive control (nav, filter chips, carousel, modals, theme toggle, moodboard flip tiles) reachable and operable without a mouse.
 - **Screen reader spot-checks** — VoiceOver on macOS verified that `aria-current`, `aria-pressed`, `aria-live` and `aria-label` announce correctly.
-- **Contrast audit** — every text-over-background pairing in light and dark mode verified against WCAG 2.1 AA (4.5:1 for body, 3:1 for large text).
+- **Contrast audit** — every text-over-background pairing in light and dark mode verified against WCAG 2.1 AA (4.5:1 for body, 3:1 for large text). Small uppercase eyebrows routed through a dedicated `--label-accent` token to meet AA in both themes; CV light-mode teal text raised from `--teal` (2.9:1) to `--teal-mid` (6.5:1).
 - **Reduced-motion** — verified that `prefers-reduced-motion: reduce` disables stagger reveals, shimmer sweeps, pulse rings and hero glow drift.
 
 ### Manual User Testing Table
