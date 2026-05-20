@@ -5,6 +5,7 @@
   --teal-mid:#1a6b5e;
   --teal-light:#d4ede9;
   --teal-pale:#eaf3f0;
+  --label-accent:#1a6b5e;
   --gold:#c9a84c;
   --bg:#ece4d6;
   --paper:#f5efe2;
@@ -21,6 +22,8 @@
   --teal-mid:#2a9d8f;
   --teal-light:#3a6e64;
   --teal-pale:#1a2e2a;
+  /* Accent for small uppercase labels (.cv-role, .cv-skill-label) — WCAG AA on dark sidebar (≈6:1) */
+  --label-accent:#5fc7b8;
   --gold:#e2c87c;
   --bg:#0a1814;
   --paper:#13241f;
@@ -57,10 +60,10 @@ html,body{
   border-color:var(--teal);color:var(--teal);outline:none;
 }
 .cv-print{
-  font-size:14px;color:var(--teal-mid);background:transparent;border:1.5px solid var(--teal-mid);
+  font-size:14px;color:var(--label-accent);background:transparent;border:1.5px solid var(--label-accent);
   padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-weight:600;
 }
-.cv-print:hover,.cv-print:focus-visible{background:var(--teal-mid);color:#FBF9F6;border-color:var(--teal-mid);outline:none}
+.cv-print:hover,.cv-print:focus-visible{background:var(--label-accent);color:var(--paper);border-color:var(--label-accent);outline:none}
 
 .cv-page{
   max-width:1080px;margin:24px auto;padding:0;
@@ -81,7 +84,7 @@ html,body{
   color:var(--teal-dark);font-weight:500;
 }
 .cv-role{
-  font-size:14px;color:var(--teal-mid);font-weight:600;
+  font-size:14px;color:var(--label-accent);font-weight:600;
   text-transform:uppercase;letter-spacing:0.08em;margin-top:6px;
 }
 .cv-contact{display:flex;flex-direction:column;gap:8px;font-size:14px}
@@ -114,7 +117,7 @@ html,body{
 .cv-skill-block{margin-bottom:14px}
 .cv-skill-block:last-child{margin-bottom:0}
 .cv-skill-label{
-  font-size:11px;color:var(--teal-mid);text-transform:uppercase;
+  font-size:11px;color:var(--label-accent);text-transform:uppercase;
   letter-spacing:0.08em;font-weight:700;margin-bottom:5px;
 }
 

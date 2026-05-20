@@ -8,6 +8,8 @@
   --teal-mid:#1a6b5e;
   --teal-light:#d4ede9;
   --teal-pale:#edf7f5;
+  /* Accent for small uppercase labels/eyebrows — sized for WCAG AA on dark navy (≈9:1) */
+  --label-accent:#5fc7b8;
   --gold:#c9a84c;
   --gold-accessible:#e2c87c;
   --gold-dark:#6b4f15;
@@ -45,6 +47,7 @@
   --teal-mid:#8a2530;
   --teal-light:#e8d5d8;
   --teal-pale:#f7eded;
+  --label-accent:#6D1B28;
   --cta:#C5A021;
   --cta-dark:#9c7e16;
   --wine:#6D1B28;
@@ -301,7 +304,7 @@ nav[role="navigation"]:hover::before{animation:none;transform:translateX(110%);t
 .butterfly-halo{filter:blur(4px);mix-blend-mode:screen}
 [data-theme="light"] .butterfly-halo{mix-blend-mode:multiply;opacity:0.85}
 [data-theme="dark"] .butterfly-halo{display:none}
-.hero-monogram-text{
+a.hero-monogram-text{
   fill:#ffffff;font-family:'Fraunces',Georgia,serif;
   font-size:92px;font-weight:600;letter-spacing:-2px;
   paint-order:stroke;stroke:rgba(13,8,8,0.55);stroke-width:1.4;stroke-linejoin:round;
@@ -662,7 +665,7 @@ h1.hero-name span{color:var(--teal)}
   font-weight:300;min-height:34px;
 }
 .role-word{
-  color:var(--teal);font-weight:500;
+  color:var(--label-accent);font-weight:500;
 }
 .hero-bio{
   font-size:18px;color:var(--text-muted);
@@ -796,7 +799,7 @@ h2.section-title{
 .skill-row:hover::after{opacity:1}
 .skill-cat{
   font-size:13px;text-transform:uppercase;letter-spacing:0.1em;
-  color:var(--teal);font-weight:500;margin-bottom:8px;
+  color:var(--label-accent);font-weight:500;margin-bottom:8px;
   display:flex;align-items:center;gap:9px;position:relative;z-index:1;
 }
 .skill-cat-icon{
@@ -1620,7 +1623,7 @@ h3.ux-card-title{font-family:var(--serif);font-size:17px;font-weight:500;color:v
 [data-theme="light"] .skill-block{background:rgba(255,255,255,0.95)}
 .skill-block-title{
   font-size:12px;text-transform:uppercase;letter-spacing:0.1em;
-  color:var(--teal);font-weight:500;margin-bottom:8px;
+  color:var(--label-accent);font-weight:500;margin-bottom:8px;
 }
 .skill-block-tags{display:flex;flex-wrap:wrap;gap:8px}
 .sk{
