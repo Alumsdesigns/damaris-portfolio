@@ -49,6 +49,7 @@ html,body{
 }
 .cv-back a:hover,.cv-back a:focus-visible{color:var(--teal);outline:none}
 .cv-back-actions{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cv-back-links{display:inline-flex;align-items:center;gap:18px;flex-wrap:wrap}
 .cv-theme-btn{
   font-size:13px;color:var(--text-muted);background:transparent;
   border:1px solid var(--border);
