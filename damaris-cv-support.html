@@ -215,6 +215,31 @@
 
 <script>
 (function(){
+  // Theme toggle — attached FIRST so it survives any later script errors
+  try {
+    const root = document.documentElement;
+    const stored = localStorage.getItem('cv-theme');
+    if(stored === 'dark' || stored === 'light'){
+      root.setAttribute('data-theme', stored);
+    }
+    console.log('[cv-theme] init — current:', root.getAttribute('data-theme'), '· stored:', stored);
+    const themeBtn = document.getElementById('cvThemeBtn');
+    if(themeBtn){
+      themeBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try{ localStorage.setItem('cv-theme', next); }catch(e){}
+        themeBtn.setAttribute('aria-pressed', String(next === 'dark'));
+        console.log('[cv-theme] toggled', current, '→', next);
+      });
+    } else {
+      console.warn('[cv-theme] button #cvThemeBtn not found');
+    }
+  } catch(themeErr) {
+    console.error('[cv-theme] init failed:', themeErr);
+  }
+
   const params = new URLSearchParams(location.search);
 
   function cvFilenameBase(){
@@ -441,20 +466,6 @@
   const docsBtn = document.getElementById('cvDocsBtn');
   if(docsBtn) docsBtn.addEventListener('click', openInGoogleDocs);
 
-  // Theme toggle — persist choice across CV views
-  const root = document.documentElement;
-  const stored = localStorage.getItem('cv-theme');
-  if(stored === 'dark' || stored === 'light'){
-    root.dataset.theme = stored;
-  }
-  const themeBtn = document.getElementById('cvThemeBtn');
-  if(themeBtn){
-    themeBtn.addEventListener('click', () => {
-      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      root.dataset.theme = next;
-      try{ localStorage.setItem('cv-theme', next); }catch(e){}
-    });
-  }
 })();
 </script>
 
