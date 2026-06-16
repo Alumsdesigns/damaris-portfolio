@@ -509,6 +509,7 @@ a.hero-monogram-text{
 .hero-availability::-webkit-scrollbar{display:none}
 @media(max-width:600px){
   .hero-availability{display:flex;flex-wrap:wrap;overflow-x:visible}
+  .hero-visual{display:none}
 }
 .hero-avail-pill{
   display:inline-flex;align-items:center;gap:6px;
