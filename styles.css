@@ -509,7 +509,16 @@ a.hero-monogram-text{
 .hero-availability::-webkit-scrollbar{display:none}
 @media(max-width:600px){
   .hero-availability{display:flex;flex-wrap:wrap;overflow-x:visible}
+}
+/* Hero monogram only appears at 1200px and up; below that the text uses the full width */
+@media(max-width:1199px){
   .hero-visual{display:none}
+  .hero-inner{
+    grid-template-columns:1fr;
+    grid-template-areas:"chips" "text" "stats";
+    gap:18px;
+  }
+  .hero-text{max-width:900px;padding-right:0}
 }
 .hero-avail-pill{
   display:inline-flex;align-items:center;gap:6px;
